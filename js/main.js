@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Subtle reveal on scroll
     const revealElements = document.querySelectorAll(
-        '.section-head, .metrics-row, .solution-grid, .product-card, ' +
-        '.traction-statement, .traction-quote, .traction-cite, .business-item, ' +
-        '.market-item, .advantage-card, .roadmap-card, .team-card, .contact-email'
+        '.section-head, .metrics-row, .solution-grid, .competitor-card, .competitor-summary, ' +
+        '.product-card, .traction-statement, .traction-quote, .traction-cite, ' +
+        '.business-item, .market-item, .advantage-card, .roadmap-card, .team-card, .contact-email'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
