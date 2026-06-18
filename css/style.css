@@ -747,6 +747,15 @@ img {
     background: var(--bg-soft);
 }
 
+.moat-subtitle {
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    max-width: 760px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+}
+
 .advantage-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
