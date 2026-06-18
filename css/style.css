@@ -359,6 +359,7 @@ img {
     border-left: 3px solid var(--accent);
     padding-left: 20px;
     margin-top: 20px;
+    margin-bottom: 36px;
     font-style: italic;
 }
 .opportunity {
