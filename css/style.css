@@ -353,6 +353,14 @@ img {
 }
 
 /* Opportunity */
+.opportunity-body p.expand {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+    margin-top: 20px;
+    font-style: italic;
+}
 .opportunity {
     background: var(--bg-soft);
 }
