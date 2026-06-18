@@ -320,6 +320,38 @@ img {
     background: var(--bg-soft);
 }
 
+/* Founder Quote */
+.quote-section {
+    padding: 80px 0;
+    background: #fafafc;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.quote-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+    text-align: center;
+}
+
+.quote-section blockquote {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 24px;
+}
+
+.quote-section cite {
+    display: block;
+    font-size: 0.9375rem;
+    font-style: normal;
+    color: var(--text-secondary);
+}
+
 /* Opportunity */
 .opportunity {
     background: var(--bg-soft);
@@ -991,8 +1023,13 @@ img {
     .section-inner,
     .hero-content,
     .hero-media,
+    .quote-inner,
     .footer-inner {
         padding: 0 20px;
+    }
+
+    .quote-section {
+        padding: 64px 0;
     }
 
     .section {
