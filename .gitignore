@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python virtual environment
+.venv/
+venv/
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local server temp files
+__pycache__/
+*.pyc
