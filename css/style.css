@@ -79,7 +79,13 @@ img {
     display: grid;
     grid-template-columns: 100px 1fr auto;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .brand {
@@ -127,6 +133,37 @@ img {
 .header-cta:hover {
     background: var(--accent);
     color: #fff;
+}
+
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    font-family: var(--font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px;
+}
+
+.lang-option {
+    padding: 4px 8px;
+    border-radius: 100px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.lang-option.active {
+    background: var(--text);
+    color: #fff;
+}
+
+.lang-sep {
+    color: var(--text-muted);
+    user-select: none;
 }
 
 .menu-toggle {
