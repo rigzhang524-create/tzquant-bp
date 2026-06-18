@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Language switcher
     function setLanguage(lang) {
         document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.documentElement.classList.toggle('lang-en', lang === 'en');
         localStorage.setItem('tzquant-lang', lang);
 
         // Toggle active state

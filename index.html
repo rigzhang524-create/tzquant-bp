@@ -7,6 +7,16 @@
     <title>TzQuant · Investor Deck</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Prevent Chinese flash when English is saved
+        (function() {
+            const saved = localStorage.getItem('tzquant-lang');
+            if (saved === 'en') {
+                document.documentElement.lang = 'en';
+                document.documentElement.classList.add('lang-en');
+            }
+        })();
+    </script>
 </head>
 <body>
     <header class="site-header" id="header">
@@ -25,14 +35,14 @@
                 <a href="#contact" data-zh="联系" data-en="Contact">联系</a>
             </nav>
             <div class="header-actions">
-                <button class="lang-toggle" id="langToggle" aria-label="切换语言">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">
                     <span class="lang-option active" data-lang="zh">中</span>
                     <span class="lang-sep">/</span>
                     <span class="lang-option" data-lang="en">EN</span>
                 </button>
                 <a href="#contact" class="header-cta" data-zh="联系我们" data-en="Contact Us">联系我们</a>
             </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
             </button>
@@ -42,11 +52,11 @@
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1 data-zh="重塑量化基础设施" data-en="Reshape Quant Infrastructure">重塑量化基础设施</h1>
-            <p class="hero-subhead" data-zh="为专业投资者打造的一体化策略研究、回测与实盘平台。" data-en="An integrated platform for strategy research, backtesting, and live trading built for professional investors.">为专业投资者打造的一体化策略研究、回测与实盘平台。</p>
+            <h1 data-zh="重塑量化基础设施" data-en="Quant Infrastructure, Reimagined">重塑量化基础设施</h1>
+            <p class="hero-subhead" data-zh="为专业投资者打造的一体化策略研究、回测与实盘平台。" data-en="An integrated platform for quantitative research, backtesting, and live trading built for professional investors.">为专业投资者打造的一体化策略研究、回测与实盘平台。</p>
             <div class="hero-links">
                 <a href="#opportunity" class="link-primary" data-zh="进一步了解" data-en="Learn More">进一步了解</a>
-                <a href="#contact" class="link-secondary" data-zh="预约演示" data-en="Book a Demo">预约演示</a>
+                <a href="#contact" class="link-secondary" data-zh="预约演示" data-en="Request Demo">预约演示</a>
             </div>
         </div>
         <div class="hero-media">
@@ -64,13 +74,13 @@
                 <h2 data-zh-html="量化交易正成为<br>机构投资的核心能力" data-en-html="Quantitative trading is becoming<br>a core capability for institutional investors">量化交易正成为<br>机构投资的核心能力</h2>
             </div>
             <div class="opportunity-body">
-                <p data-zh="中国量化私募管理规模已突破 ~$1.8T，过去五年复合增长率超过 25%。然而，数据割裂、回测失真、实盘执行成本高三重痛点，严重制约策略落地效率。" data-en="China's quant private fund AUM has exceeded ~$1.8T, with a 5-year CAGR over 25%. However, fragmented data, distorted backtests, and high live execution costs severely constrain strategy deployment efficiency.">中国量化私募管理规模已突破 ~$1.8T，过去五年复合增长率超过 25%。然而，数据割裂、回测失真、实盘执行成本高三重痛点，严重制约策略落地效率。</p>
-                <p class="secondary" data-zh="专业投资者亟需一个兼具研究深度、执行效率与风控完整性的一站式量化基础设施。" data-en="Professional investors urgently need a one-stop quantitative infrastructure with research depth, execution efficiency, and complete risk control.">专业投资者亟需一个兼具研究深度、执行效率与风控完整性的一站式量化基础设施。</p>
+                <p data-zh="中国量化私募管理规模已突破 ~$1.8T，过去五年复合增长率超过 25%。然而，数据割裂、回测失真、实盘执行成本高三重痛点，严重制约策略落地效率。" data-en="China's quantitative private fund AUM has reached ~$1.8T, with a 5-year CAGR exceeding 25%. Yet three critical pain points—fragmented data, backtest distortion, and high live execution costs—severely constrain strategy deployment efficiency.">中国量化私募管理规模已突破 ~$1.8T，过去五年复合增长率超过 25%。然而，数据割裂、回测失真、实盘执行成本高三重痛点，严重制约策略落地效率。</p>
+                <p class="secondary" data-zh="专业投资者亟需一个兼具研究深度、执行效率与风控完整性的一站式量化基础设施。" data-en="Professional investors need an integrated quantitative infrastructure that combines research depth, execution efficiency, and comprehensive risk control.">专业投资者亟需一个兼具研究深度、执行效率与风控完整性的一站式量化基础设施。</p>
             </div>
             <div class="metrics-row">
                 <div class="metric">
                     <span class="metric-value">~$1.8T</span>
-                    <span class="metric-label" data-zh="中国量化私募规模" data-en="China Quant Private AUM">中国量化私募规模</span>
+                    <span class="metric-label" data-zh="中国量化私募规模" data-en="China Quant Private Fund AUM">中国量化私募规模</span>
                 </div>
                 <div class="metric">
                     <span class="metric-value">~$1.5T</span>
@@ -78,7 +88,7 @@
                 </div>
                 <div class="metric">
                     <span class="metric-value">~$20T</span>
-                    <span class="metric-label" data-zh="全球算法交易年交易量" data-en="Global Algo Trading Volume">全球算法交易年交易量</span>
+                    <span class="metric-label" data-zh="全球算法交易年交易量" data-en="Global Algorithmic Trading Volume">全球算法交易年交易量</span>
                 </div>
                 <div class="metric">
                     <span class="metric-value">25%+</span>
@@ -86,11 +96,11 @@
                 </div>
                 <div class="metric">
                     <span class="metric-value">~70%</span>
-                    <span class="metric-label" data-zh="美股机构量化交易占比" data-en="US Institutional Quant Share">美股机构量化交易占比</span>
+                    <span class="metric-label" data-zh="美股机构量化交易占比" data-en="US Institutional Quant Trading Share">美股机构量化交易占比</span>
                 </div>
                 <div class="metric">
                     <span class="metric-value">10,000+</span>
-                    <span class="metric-label" data-zh="全球量化基金数量" data-en="Global Quant Funds">全球量化基金数量</span>
+                    <span class="metric-label" data-zh="全球量化基金数量" data-en="Global Quantitative Funds">全球量化基金数量</span>
                 </div>
             </div>
         </div>
@@ -100,29 +110,29 @@
     <section class="section solution" id="solution">
         <div class="section-inner">
             <div class="section-head">
-                <h2 data-zh-html="一站式平台，<br>覆盖策略全生命周期" data-en-html="One-stop platform,<br>covering the full strategy lifecycle">一站式平台，<br>覆盖策略全生命周期</h2>
-                <p class="section-subhead" data-zh="从数据到执行，每个环节都经过精心设计。" data-en="Every step from data to execution is carefully designed.">从数据到执行，每个环节都经过精心设计。</p>
+                <h2 data-zh-html="一站式平台，<br>覆盖策略全生命周期" data-en-html="One-stop platform,<br>across the full strategy lifecycle">一站式平台，<br>覆盖策略全生命周期</h2>
+                <p class="section-subhead" data-zh="从数据到执行，每个环节都经过精心设计。" data-en="Every stage—from data to execution—is engineered with precision.">从数据到执行，每个环节都经过精心设计。</p>
             </div>
             <div class="solution-grid">
                 <div class="solution-card">
                     <span data-zh="数据层" data-en="Data Layer">数据层</span>
-                    <p data-zh="高质量行情、财务与另类数据" data-en="High-quality market, financial, and alternative data">高质量行情、财务与另类数据</p>
+                    <p data-zh="高质量行情、财务与另类数据" data-en="High-quality market, fundamental, and alternative data">高质量行情、财务与另类数据</p>
                 </div>
                 <div class="solution-card">
                     <span data-zh="研究层" data-en="Research Layer">研究层</span>
-                    <p data-zh="多因子模型与 AI 策略研究" data-en="Multi-factor models and AI strategy research">多因子模型与 AI 策略研究</p>
+                    <p data-zh="多因子模型与 AI 策略研究" data-en="Multi-factor modeling and AI-driven strategy research">多因子模型与 AI 策略研究</p>
                 </div>
                 <div class="solution-card">
                     <span data-zh="回测层" data-en="Backtest Layer">回测层</span>
-                    <p data-zh="Tick 级高精度回测引擎" data-en="Tick-level high-precision backtest engine">Tick 级高精度回测引擎</p>
+                    <p data-zh="Tick 级高精度回测引擎" data-en="Tick-level high-fidelity backtest engine">Tick 级高精度回测引擎</p>
                 </div>
                 <div class="solution-card">
                     <span data-zh="执行层" data-en="Execution Layer">执行层</span>
-                    <p data-zh="低延迟实盘交易接入" data-en="Low-latency live trading access">低延迟实盘交易接入</p>
+                    <p data-zh="低延迟实盘交易接入" data-en="Low-latency live trading connectivity">低延迟实盘交易接入</p>
                 </div>
                 <div class="solution-card wide">
                     <span data-zh="风控层" data-en="Risk Control Layer">风控层</span>
-                    <p data-zh="事前事中事后全链路风控体系，守护每一笔交易的安全。" data-en="Full-chain risk control before, during, and after trades, safeguarding every transaction.">事前事中事后全链路风控体系，守护每一笔交易的安全。</p>
+                    <p data-zh="事前事中事后全链路风控体系，守护每一笔交易的安全。" data-en="Full-chain risk control across pre-trade, in-trade, and post-trade stages, safeguarding every transaction.">事前事中事后全链路风控体系，守护每一笔交易的安全。</p>
                 </div>
             </div>
         </div>
@@ -133,7 +143,7 @@
         <div class="section-inner">
             <div class="section-head">
                 <h2 data-zh="竞品分析" data-en="Competitive Analysis">竞品分析</h2>
-                <p class="section-subhead" data-zh="聚焦专业投资者需求，TzQuant 在数据、执行与风控上形成差异化定位。" data-en="Focused on professional investor needs, TzQuant differentiates through data, execution, and risk control.">聚焦专业投资者需求，TzQuant 在数据、执行与风控上形成差异化定位。</p>
+                <p class="section-subhead" data-zh="聚焦专业投资者需求，TzQuant 在数据、执行与风控上形成差异化定位。" data-en="Built for institutional investors, TzQuant differentiates through data, execution, and risk control.">聚焦专业投资者需求，TzQuant 在数据、执行与风控上形成差异化定位。</p>
             </div>
             <div class="competitor-grid">
                 <div class="competitor-card">
@@ -141,22 +151,22 @@
                         <h3>JoinQuant</h3>
                         <span data-zh="聚宽" data-en="China">聚宽</span>
                     </div>
-                    <p class="competitor-position" data-zh="国内领先的量化投研社区与云平台，以策略分享和回测工具起家。" data-en="A leading quant research community and cloud platform in China, starting from strategy sharing and backtesting tools.">国内领先的量化投研社区与云平台，以策略分享和回测工具起家。</p>
+                    <p class="competitor-position" data-zh="国内领先的量化投研社区与云平台，以策略分享和回测工具起家。" data-en="A leading quant research community and cloud platform in China, originating from strategy sharing and backtesting tools.">国内领先的量化投研社区与云平台，以策略分享和回测工具起家。</p>
                     <div class="competitor-points">
                         <div class="point strength">
                             <strong data-zh="优势" data-en="Strengths">优势</strong>
                             <ul>
                                 <li data-zh="用户社区活跃，策略生态丰富" data-en="Active user community with rich strategy ecosystem">用户社区活跃，策略生态丰富</li>
-                                <li data-zh="上手门槛低，适合个人投资者" data-en="Low learning curve, suitable for individual investors">上手门槛低，适合个人投资者</li>
-                                <li data-zh="数据覆盖 A 股较全" data-en="Comprehensive A-share data coverage">数据覆盖 A 股较全</li>
+                                <li data-zh="上手门槛低，适合个人投资者" data-en="Low barrier to entry, suited for individual investors">上手门槛低，适合个人投资者</li>
+                                <li data-zh="数据覆盖 A 股较全" data-en="Broad A-share data coverage">数据覆盖 A 股较全</li>
                             </ul>
                         </div>
                         <div class="point weakness">
-                            <strong data-zh="差距" data-en="Gaps">差距</strong>
+                            <strong data-zh="差距" data-en="Limitations">差距</strong>
                             <ul>
                                 <li data-zh="机构级低延迟执行能力弱" data-en="Weak institutional-grade low-latency execution">机构级低延迟执行能力弱</li>
                                 <li data-zh="实盘交易与风控闭环不完整" data-en="Incomplete live trading and risk control loop">实盘交易与风控闭环不完整</li>
-                                <li data-zh="私有化部署灵活性有限" data-en="Limited flexibility for private deployment">私有化部署灵活性有限</li>
+                                <li data-zh="私有化部署灵活性有限" data-en="Limited flexibility for on-premise deployment">私有化部署灵活性有限</li>
                             </ul>
                         </div>
                     </div>
@@ -166,22 +176,22 @@
                         <h3>RiceQuant</h3>
                         <span data-zh="米筐科技" data-en="China">米筐科技</span>
                     </div>
-                    <p class="competitor-position" data-zh="面向专业投资者的量化研究与数据平台，强调 API 与云端协作。" data-en="A quant research and data platform for professional investors, emphasizing APIs and cloud collaboration.">面向专业投资者的量化研究与数据平台，强调 API 与云端协作。</p>
+                    <p class="competitor-position" data-zh="面向专业投资者的量化研究与数据平台，强调 API 与云端协作。" data-en="A quant research and data platform targeting professional investors, emphasizing APIs and cloud collaboration.">面向专业投资者的量化研究与数据平台，强调 API 与云端协作。</p>
                     <div class="competitor-points">
                         <div class="point strength">
                             <strong data-zh="优势" data-en="Strengths">优势</strong>
                             <ul>
-                                <li data-zh="研究工具专业，API 较完善" data-en="Professional research tools with well-developed APIs">研究工具专业，API 较完善</li>
-                                <li data-zh="支持多资产类别数据" data-en="Supports multi-asset data">支持多资产类别数据</li>
-                                <li data-zh="云端协作体验较好" data-en="Good cloud collaboration experience">云端协作体验较好</li>
+                                <li data-zh="研究工具专业，API 较完善" data-en="Professional research tools with mature APIs">研究工具专业，API 较完善</li>
+                                <li data-zh="支持多资产类别数据" data-en="Supports multi-asset data coverage">支持多资产类别数据</li>
+                                <li data-zh="云端协作体验较好" data-en="Strong cloud collaboration experience">云端协作体验较好</li>
                             </ul>
                         </div>
                         <div class="point weakness">
-                            <strong data-zh="差距" data-en="Gaps">差距</strong>
+                            <strong data-zh="差距" data-en="Limitations">差距</strong>
                             <ul>
-                                <li data-zh="定价模式复杂，客单价高" data-en="Complex pricing with high customer acquisition cost">定价模式复杂，客单价高</li>
+                                <li data-zh="定价模式复杂，客单价高" data-en="Complex pricing and high customer acquisition cost">定价模式复杂，客单价高</li>
                                 <li data-zh="实盘执行与券商接入深度不足" data-en="Insufficient live execution and broker integration depth">实盘执行与券商接入深度不足</li>
-                                <li data-zh="跨部门协同与风控模块较弱" data-en="Weak cross-department collaboration and risk control modules">跨部门协同与风控模块较弱</li>
+                                <li data-zh="跨部门协同与风控模块较弱" data-en="Weak cross-functional collaboration and risk control modules">跨部门协同与风控模块较弱</li>
                             </ul>
                         </div>
                     </div>
@@ -191,7 +201,7 @@
                         <h3>TQuant Lab</h3>
                         <span data-zh="TEJ" data-en="Taiwan">TEJ</span>
                     </div>
-                    <p class="competitor-position" data-zh="海外市场深耕型量化回测平台，基于 Zipline 引擎，学术与机构用户较多。" data-en="An overseas market-focused quantitative backtesting platform based on the Zipline engine, widely used by academics and institutions.">海外市场深耕型量化回测平台，基于 Zipline 引擎，学术与机构用户较多。</p>
+                    <p class="competitor-position" data-zh="海外市场深耕型量化回测平台，基于 Zipline 引擎，学术与机构用户较多。" data-en="An overseas market-focused quantitative backtesting platform built on the Zipline engine, widely adopted by academics and institutions.">海外市场深耕型量化回测平台，基于 Zipline 引擎，学术与机构用户较多。</p>
                     <div class="competitor-points">
                         <div class="point strength">
                             <strong data-zh="优势" data-en="Strengths">优势</strong>
@@ -202,18 +212,18 @@
                             </ul>
                         </div>
                         <div class="point weakness">
-                            <strong data-zh="差距" data-en="Gaps">差距</strong>
+                            <strong data-zh="差距" data-en="Limitations">差距</strong>
                             <ul>
-                                <li data-zh="主要聚焦海外市场，大陆覆盖弱" data-en="Mainly focused on overseas markets, weak mainland China coverage">主要聚焦海外市场，大陆覆盖弱</li>
-                                <li data-zh="产品界面与交互偏传统" data-en="Product UI and interaction are somewhat traditional">产品界面与交互偏传统</li>
-                                <li data-zh="AI 与另类数据整合不足" data-en="Insufficient AI and alternative data integration">AI 与另类数据整合不足</li>
+                                <li data-zh="主要聚焦海外市场，大陆覆盖弱" data-en="Primarily focused on overseas markets, limited mainland China coverage">主要聚焦海外市场，大陆覆盖弱</li>
+                                <li data-zh="产品界面与交互偏传统" data-en="Product UI and interaction feel dated">产品界面与交互偏传统</li>
+                                <li data-zh="AI 与另类数据整合不足" data-en="Limited AI and alternative data integration">AI 与另类数据整合不足</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="competitor-summary">
-                <p data-zh="相比上述平台，TzQuant 从机构客户需求出发，将研究、回测、实盘执行与全链路风控深度融合，并以低延迟交易核心和开放 API 构建可扩展的量化基础设施。" data-en="Compared with the above platforms, TzQuant starts from institutional client needs, deeply integrating research, backtesting, live execution, and full-chain risk control, while building a scalable quantitative infrastructure with a low-latency trading core and open APIs.">相比上述平台，TzQuant 从机构客户需求出发，将研究、回测、实盘执行与全链路风控深度融合，并以低延迟交易核心和开放 API 构建可扩展的量化基础设施。</p>
+                <p data-zh="相比上述平台，TzQuant 从机构客户需求出发，将研究、回测、实盘执行与全链路风控深度融合，并以低延迟交易核心和开放 API 构建可扩展的量化基础设施。" data-en="Unlike the above platforms, TzQuant is built from the ground up for institutional clients—deeply integrating research, backtesting, live execution, and full-chain risk control, while delivering a scalable quantitative infrastructure through a low-latency trading core and open APIs.">相比上述平台，TzQuant 从机构客户需求出发，将研究、回测、实盘执行与全链路风控深度融合，并以低延迟交易核心和开放 API 构建可扩展的量化基础设施。</p>
             </div>
         </div>
     </section>
@@ -249,8 +259,8 @@
                         <p data-zh="回测分析" data-en="Backtest Analysis">回测分析</p>
                         <ul>
                             <li data-zh="事件驱动回测引擎" data-en="Event-driven backtest engine">事件驱动回测引擎</li>
-                            <li data-zh="真实交易成本建模" data-en="Real transaction cost modeling">真实交易成本建模</li>
-                            <li data-zh="风险指标全景报告" data-en="Comprehensive risk metrics report">风险指标全景报告</li>
+                            <li data-zh="真实交易成本建模" data-en="Realistic transaction cost modeling">真实交易成本建模</li>
+                            <li data-zh="风险指标全景报告" data-en="Comprehensive risk metrics reporting">风险指标全景报告</li>
                         </ul>
                     </div>
                 </div>
@@ -263,7 +273,7 @@
                         <p data-zh="实盘交易" data-en="Live Trading">实盘交易</p>
                         <ul>
                             <li data-zh="低延迟订单执行" data-en="Low-latency order execution">低延迟订单执行</li>
-                            <li data-zh="智能订单路由" data-en="Smart order routing">智能订单路由</li>
+                            <li data-zh="智能订单路由" data-en="Intelligent order routing">智能订单路由</li>
                             <li data-zh="实时风控监控" data-en="Real-time risk monitoring">实时风控监控</li>
                         </ul>
                     </div>
@@ -278,9 +288,9 @@
             <div class="section-head">
                 <h2 data-zh="已验证的市场吸引力" data-en="Proven Market Traction">已验证的市场吸引力</h2>
             </div>
-            <p class="traction-statement" data-zh="已有 50+ 家机构客户使用 TzQuant 平台，累计运行 500+ 个策略模型，日交易额超过 ~$140M，系统可用性达 99.9%。" data-en="Used by 50+ institutional clients, running 500+ strategy models, with daily trading volume exceeding ~$140M and 99.9% system availability.">已有 <strong>50+</strong> 家机构客户使用 TzQuant 平台，累计运行 <strong>500+</strong> 个策略模型，日交易额超过 <strong>~$140M</strong>，系统可用性达 <strong>99.9%</strong>。</p>
-            <blockquote class="traction-quote" data-zh="“TzQuant 让我们的策略回测效率提升了 3 倍，实盘执行延迟降低了 40%。”" data-en="“TzQuant tripled our strategy backtesting efficiency and reduced live execution latency by 40%.”">“TzQuant 让我们的策略回测效率提升了 3 倍，实盘执行延迟降低了 40%。”</blockquote>
-            <cite class="traction-cite" data-zh="- 某头部量化私募投资总监" data-en="- Investment Director, Leading Quant Hedge Fund">- 某头部量化私募投资总监</cite>
+            <p class="traction-statement" data-zh="已有 50+ 家机构客户使用 TzQuant 平台，累计运行 500+ 个策略模型，日交易额超过 ~$140M，系统可用性达 99.9%。" data-en="Trusted by 50+ institutional clients, running 500+ strategy models, with daily trading volume exceeding ~$140M and 99.9% system uptime.">已有 <strong>50+</strong> 家机构客户使用 TzQuant 平台，累计运行 <strong>500+</strong> 个策略模型，日交易额超过 <strong>~$140M</strong>，系统可用性达 <strong>99.9%</strong>。</p>
+            <blockquote class="traction-quote" data-zh="“TzQuant 让我们的策略回测效率提升了 3 倍，实盘执行延迟降低了 40%。”" data-en="“TzQuant tripled our backtesting efficiency and reduced live execution latency by 40%.”">“TzQuant 让我们的策略回测效率提升了 3 倍，实盘执行延迟降低了 40%。”</blockquote>
+            <cite class="traction-cite" data-zh="- 某头部量化私募投资总监" data-en="— Investment Director, Leading Quantitative Hedge Fund">- 某头部量化私募投资总监</cite>
         </div>
     </section>
 
@@ -295,16 +305,16 @@
                     </div>
                     <div class="business-list">
                         <div class="business-item">
-                            <h3 data-zh="SaaS 订阅" data-en="SaaS Subscription">SaaS 订阅</h3>
+                            <h3 data-zh="SaaS 订阅" data-en="SaaS Subscriptions">SaaS 订阅</h3>
                             <p data-zh="按模块与数据量分级订阅，覆盖研究、回测与基础交易需求。" data-en="Tiered subscriptions by module and data volume, covering research, backtesting, and basic trading needs.">按模块与数据量分级订阅，覆盖研究、回测与基础交易需求。</p>
                         </div>
                         <div class="business-item">
                             <h3 data-zh="交易分成" data-en="Trading Revenue Share">交易分成</h3>
-                            <p data-zh="基于实盘交易规模收取技术服务费，与客户增长深度绑定。" data-en="Technical service fees based on live trading volume, closely aligned with client growth.">基于实盘交易规模收取技术服务费，与客户增长深度绑定。</p>
+                            <p data-zh="基于实盘交易规模收取技术服务费，与客户增长深度绑定。" data-en="Technical service fees tied to live trading volume, closely aligned with client growth.">基于实盘交易规模收取技术服务费，与客户增长深度绑定。</p>
                         </div>
                         <div class="business-item">
                             <h3 data-zh="定制开发" data-en="Custom Development">定制开发</h3>
-                            <p data-zh="为大型机构提供私有化部署、策略定制与系统对接服务。" data-en="Private deployment, strategy customization, and system integration services for large institutions.">为大型机构提供私有化部署、策略定制与系统对接服务。</p>
+                            <p data-zh="为大型机构提供私有化部署、策略定制与系统对接服务。" data-en="On-premise deployment, strategy customization, and system integration services for large institutions.">为大型机构提供私有化部署、策略定制与系统对接服务。</p>
                         </div>
                     </div>
                 </div>
@@ -317,7 +327,7 @@
                         <div class="market-item">
                             <span class="market-label">TAM</span>
                             <span class="market-value">~$70B+</span>
-                            <p data-zh="中国量化交易技术服务市场总规模" data-en="Total addressable market for China quant trading tech services">中国量化交易技术服务市场总规模</p>
+                            <p data-zh="中国量化交易技术服务市场总规模" data-en="Total addressable market for China quant trading technology services">中国量化交易技术服务市场总规模</p>
                         </div>
                         <div class="market-item">
                             <span class="market-label">SAM</span>
@@ -344,7 +354,7 @@
             <div class="advantage-grid">
                 <div class="advantage-card">
                     <h3 data-zh="全链路闭环" data-en="Full-Loop Integration">全链路闭环</h3>
-                    <p data-zh="研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。" data-en="Integration of research, backtesting, live trading, and risk control, avoiding fragmented data and strategy flows across multiple tools.">研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。</p>
+                    <p data-zh="研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。" data-en="Integration of research, backtesting, live trading, and risk control—preventing fragmented data and strategy flows across multiple tools.">研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。</p>
                 </div>
                 <div class="advantage-card">
                     <h3 data-zh="低延迟执行" data-en="Low-Latency Execution">低延迟执行</h3>
@@ -352,11 +362,11 @@
                 </div>
                 <div class="advantage-card">
                     <h3 data-zh="真实回测" data-en="Realistic Backtesting">真实回测</h3>
-                    <p data-zh="Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。" data-en="Tick-level data and real transaction cost modeling significantly reduce return deviation after strategy go-live.">Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。</p>
+                    <p data-zh="Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。" data-en="Tick-level data and realistic transaction cost modeling significantly reduce post-deployment return deviation.">Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。</p>
                 </div>
                 <div class="advantage-card">
                     <h3 data-zh="开放生态" data-en="Open Ecosystem">开放生态</h3>
-                    <p data-zh="标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。" data-en="Standardized APIs and plugin system enable clients and third-party developers to extend platform capabilities together.">标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。</p>
+                    <p data-zh="标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。" data-en="Standardized APIs and plugin architecture enable clients and third-party developers to extend platform capabilities together.">标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。</p>
                 </div>
             </div>
         </div>
@@ -372,22 +382,22 @@
                 <div class="roadmap-card">
                     <span class="roadmap-status done" data-zh="已完成" data-en="Completed">已完成</span>
                     <h3 data-zh="产品验证" data-en="Product Validation">产品验证</h3>
-                    <p data-zh="核心平台上线，获得 50+ 机构客户，验证产品与商业模式。" data-en="Core platform launched with 50+ institutional clients, validating product and business model.">核心平台上线，获得 50+ 机构客户，验证产品与商业模式。</p>
+                    <p data-zh="核心平台上线，获得 50+ 机构客户，验证产品与商业模式。" data-en="Core platform launched with 50+ institutional clients, validating the product and business model.">核心平台上线，获得 50+ 机构客户，验证产品与商业模式。</p>
                 </div>
                 <div class="roadmap-card">
                     <span class="roadmap-status">2026</span>
                     <h3 data-zh="规模扩张" data-en="Scale Expansion">规模扩张</h3>
-                    <p data-zh="拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。" data-en="Expand data sources and broker access, cover more asset classes, and scale SaaS revenue.">拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。</p>
+                    <p data-zh="拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。" data-en="Expand data sources and broker connectivity, cover more asset classes, and scale SaaS revenue.">拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。</p>
                 </div>
                 <div class="roadmap-card">
                     <span class="roadmap-status">2027</span>
                     <h3 data-zh="生态构建" data-en="Ecosystem Building">生态构建</h3>
-                    <p data-zh="开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。" data-en="Open platform and strategy marketplace, bringing in third-party developers to form a quant strategy ecosystem.">开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。</p>
+                    <p data-zh="开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。" data-en="Open platform and strategy marketplace, onboarding third-party developers to build a quantitative strategy ecosystem.">开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。</p>
                 </div>
                 <div class="roadmap-card">
                     <span class="roadmap-status">2028</span>
                     <h3 data-zh="全球化" data-en="Globalization">全球化</h3>
-                    <p data-zh="拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。" data-en="Expand into Hong Kong stocks, US stocks, and derivatives markets, serving professional investors across Asia-Pacific.">拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。</p>
+                    <p data-zh="拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。" data-en="Expand into Hong Kong, US, and derivatives markets, serving professional investors across Asia-Pacific.">拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。</p>
                 </div>
             </div>
         </div>
@@ -398,7 +408,7 @@
         <div class="section-inner">
             <div class="section-head">
                 <span class="eyebrow" data-zh="团队" data-en="Team">团队</span>
-                <h2 data-zh-html="由量化、科技与金融<br>领域资深人士组成" data-en-html="Comprised of seasoned professionals<br>from quant, tech, and finance">由量化、科技与金融<br>领域资深人士组成</h2>
+                <h2 data-zh-html="由量化、科技与金融<br>领域资深人士组成" data-en-html="Seasoned professionals<br>from quant, technology, and finance">由量化、科技与金融<br>领域资深人士组成</h2>
             </div>
             <div class="team-grid">
                 <div class="team-card">
@@ -406,9 +416,9 @@
                     <h3>Cynthia</h3>
                     <span class="member-role">CEO</span>
                     <ul>
-                        <li data-zh="纽约大学毕业，曾任世界 500 强管培生" data-en="NYU graduate, former management trainee at Fortune 500">纽约大学毕业，曾任世界 500 强管培生</li>
+                        <li data-zh="纽约大学毕业，曾任世界 500 强管培生" data-en="NYU graduate, former management trainee at a Fortune 500 company">纽约大学毕业，曾任世界 500 强管培生</li>
                         <li data-zh="2018 年与 Leo 共同创立天择量化前身项目组" data-en="Co-founded the predecessor project of TzQuant with Leo in 2018">2018 年与 Leo 共同创立天择量化前身项目组</li>
-                        <li data-zh="建立高效的研发管理与跨部门协同体系" data-en="Built efficient R&D management and cross-department collaboration">建立高效的研发管理与跨部门协同体系</li>
+                        <li data-zh="建立高效的研发管理与跨部门协同体系" data-en="Built efficient R&D management and cross-functional collaboration systems">建立高效的研发管理与跨部门协同体系</li>
                     </ul>
                 </div>
                 <div class="team-card">
@@ -416,9 +426,9 @@
                     <h3>Leo</h3>
                     <span class="member-role">CTO</span>
                     <ul>
-                        <li data-zh="区块链原生开发者，2011 年入行" data-en="Blockchain native developer since 2011">区块链原生开发者，2011 年入行</li>
+                        <li data-zh="区块链原生开发者，2011 年入行" data-en="Blockchain-native developer since 2011">区块链原生开发者，2011 年入行</li>
                         <li data-zh="顶尖 Alpha 猎手，专注低相关性 Alpha 因子" data-en="Top alpha hunter focused on low-correlation alpha factors">顶尖 Alpha 猎手，专注低相关性 Alpha 因子</li>
-                        <li data-zh="主导搭建容纳超 $1B 规模的 AI 量化平台" data-en="Led building an AI quant platform supporting over $1B AUM">主导搭建容纳超 $1B 规模的 AI 量化平台</li>
+                        <li data-zh="主导搭建容纳超 $1B 规模的 AI 量化平台" data-en="Led building an AI-driven quant platform supporting over $1B in AUM">主导搭建容纳超 $1B 规模的 AI 量化平台</li>
                     </ul>
                 </div>
                 <div class="team-card">
@@ -426,8 +436,8 @@
                     <h3>Barry</h3>
                     <span class="member-role">CMO</span>
                     <ul>
-                        <li data-zh="前世界 500 强投资并购总监" data-en="Former M&A director at Fortune 500">前世界 500 强投资并购总监</li>
-                        <li data-zh="精通股权结构、融资节奏及路演材料" data-en="Expert in equity structure, financing rhythm, and pitch materials">精通股权结构、融资节奏及路演材料</li>
+                        <li data-zh="前世界 500 强投资并购总监" data-en="Former M&A director at a Fortune 500 company">前世界 500 强投资并购总监</li>
+                        <li data-zh="精通股权结构、融资节奏及路演材料" data-en="Expert in equity structure, financing cadence, and investor materials">精通股权结构、融资节奏及路演材料</li>
                         <li data-zh="负责大湾区合作与生态建设" data-en="Leads Greater Bay Area partnerships and ecosystem development">负责大湾区合作与生态建设</li>
                     </ul>
                 </div>
@@ -439,7 +449,7 @@
     <section class="section contact" id="contact">
         <div class="section-inner">
             <div class="section-head">
-                <h2 data-zh-html="本轮融资 <strong>$5M USD</strong>" data-en-html="Series Funding <strong>$5M USD</strong>">本轮融资 <strong>$5M USD</strong></h2>
+                <h2 data-zh-html="本轮融资 <strong>$5M USD</strong>" data-en-html="This Round <strong>$5M USD</strong>">本轮融资 <strong>$5M USD</strong></h2>
                 <p class="section-subhead" data-zh="如果您对 TzQuant 感兴趣，欢迎与我们联系。" data-en="If you're interested in TzQuant, we'd love to hear from you.">如果您对 TzQuant 感兴趣，欢迎与我们联系。</p>
             </div>
             <a href="mailto:bd@tzquant.com" class="contact-email">bd@tzquant.com</a>
