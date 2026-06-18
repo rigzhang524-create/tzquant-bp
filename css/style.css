@@ -274,11 +274,13 @@ img {
     padding: 0 32px;
 }
 
+.hero-media video,
 .hero-media img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: var(--radius) var(--radius) 0 0;
+    background: var(--bg-soft);
 }
 
 /* Opportunity */
