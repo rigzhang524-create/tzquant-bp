@@ -237,6 +237,17 @@ img {
     margin-top: 16px;
 }
 
+.strategic-note {
+    max-width: 820px;
+    margin: 0 auto 64px;
+    padding: 0 32px;
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--text);
+}
+
 /* Hero */
 .hero {
     min-height: 100vh;
@@ -1033,6 +1044,7 @@ img {
     .hero-content,
     .hero-media,
     .quote-inner,
+    .strategic-note,
     .footer-inner {
         padding: 0 20px;
     }
