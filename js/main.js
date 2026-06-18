@@ -63,8 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Update HTML content (for elements with <br>)
+        // Note: dataset property names are camelCase, so data-en-html -> enHtml
         document.querySelectorAll('[data-zh-html][data-en-html]').forEach(el => {
-            const html = el.dataset[lang + '-html'];
+            const html = el.dataset[lang + 'Html'];
             if (html !== undefined) {
                 el.innerHTML = html;
             }
