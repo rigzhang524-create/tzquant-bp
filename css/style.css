@@ -748,6 +748,7 @@ img {
 }
 
 .moat-subtitle {
+    font-family: var(--font);
     font-size: 1.125rem;
     font-style: italic;
     color: var(--text-secondary);
@@ -757,15 +758,18 @@ img {
 }
 
 .moat-quote-box {
+    font-family: var(--font);
     max-width: 900px;
     margin: 64px auto 0;
     padding: 40px 48px;
-    background: var(--bg);
+    background: #ffffff;
+    border: 1px solid var(--border-light);
     border-radius: var(--radius);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
 .moat-quote-box p {
+    font-family: var(--font);
     font-size: 1.125rem;
     font-style: italic;
     line-height: 1.7;
