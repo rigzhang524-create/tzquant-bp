@@ -1,6 +1,6 @@
 /**
  * TzQuant Investor Deck
- * Minimal, functional interactions
+ * Apple-style minimal interactions
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Subtle reveal on scroll
     const revealElements = document.querySelectorAll(
-        '.section-preamble, .section-lead, .opportunity-body, .metrics-row, .solution-stack, ' +
-        '.product-item, .traction-statement, .traction-quote, .business-item, ' +
-        '.market-item, .advantage-row, .roadmap-card, .team-member, .contact-block'
+        '.section-head, .metrics-row, .solution-grid, .product-card, ' +
+        '.traction-statement, .traction-quote, .traction-cite, .business-item, ' +
+        '.market-item, .advantage-card, .roadmap-card, .team-card, .contact-email'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
