@@ -675,6 +675,15 @@ img {
     gap: 80px;
 }
 
+.design-logic {
+    font-size: 1.0625rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 540px;
+}
+
 .business-list {
     display: flex;
     flex-direction: column;
