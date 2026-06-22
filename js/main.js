@@ -13,7 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Header scroll state
     function updateHeader() {
-        header.classList.toggle('scrolled', window.scrollY > 20);
+        if (window.scrollY > 20) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     }
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
@@ -46,12 +50,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Language switcher
     function setLanguage(lang) {
         document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-        document.documentElement.classList.toggle('lang-en', lang === 'en');
+        if (lang === 'en') {
+            document.documentElement.classList.add('lang-en');
+        } else {
+            document.documentElement.classList.remove('lang-en');
+        }
         localStorage.setItem('tzquant-lang', lang);
 
         // Toggle active state
         document.querySelectorAll('.lang-option').forEach(opt => {
-            opt.classList.toggle('active', opt.dataset.lang === lang);
+            if (opt.dataset.lang === lang) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
         });
 
         // Update text content
@@ -88,6 +100,100 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize language
     const savedLang = localStorage.getItem('tzquant-lang') || 'zh';
     setLanguage(savedLang);
+
+    // Hero video mobile compatibility + fallback
+    (function initHeroVideo() {
+        const heroMedia = document.getElementById('heroMedia');
+        const heroVideo = document.getElementById('heroVideo');
+        const heroPoster = document.getElementById('heroPoster');
+        const posterPlay = document.getElementById('posterPlay');
+        if (!heroMedia || !heroVideo) return;
+
+        let fallbackTimer = null;
+        let autoplayFailed = false;
+
+        function showPoster() {
+            if (heroMedia.classList.contains('is-poster')) return;
+            heroMedia.classList.add('is-poster');
+            autoplayFailed = true;
+            try {
+                heroVideo.pause();
+            } catch (e) {
+                // ignore
+            }
+        }
+
+        function hidePoster() {
+            heroMedia.classList.remove('is-poster');
+            autoplayFailed = false;
+        }
+
+        function attemptPlay(isUserGesture) {
+            if (!heroVideo.paused) return;
+            heroVideo.muted = true;
+            const playPromise = heroVideo.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+                playPromise.then(function() {
+                    hidePoster();
+                    clearTimeout(fallbackTimer);
+                }).catch(function(err) {
+                    clearTimeout(fallbackTimer);
+                    // Autoplay blocked (WeChat WebView, iOS low power, etc.)
+                    showPoster();
+                    if (isUserGesture) {
+                        // User already clicked, some browsers still block; keep poster visible
+                        showPoster();
+                    }
+                });
+            } else {
+                // Older browsers may not return a promise
+                startFallbackTimer();
+            }
+        }
+
+        function startFallbackTimer() {
+            clearTimeout(fallbackTimer);
+            fallbackTimer = setTimeout(function() {
+                if (heroVideo.paused || heroVideo.readyState < 2) {
+                    showPoster();
+                }
+            }, 3000);
+        }
+
+        heroVideo.addEventListener('error', showPoster, { once: true });
+        heroVideo.addEventListener('stalled', showPoster, { once: true });
+        heroVideo.addEventListener('abort', showPoster, { once: true });
+
+        heroVideo.addEventListener('playing', function() {
+            hidePoster();
+            clearTimeout(fallbackTimer);
+        });
+
+        heroVideo.addEventListener('pause', function() {
+            // If paused and autoplay already failed, keep poster shown
+            if (autoplayFailed) {
+                showPoster();
+            }
+        });
+
+        if (heroPoster) {
+            heroPoster.addEventListener('click', function() {
+                attemptPlay(true);
+            });
+        }
+
+        if (posterPlay) {
+            posterPlay.addEventListener('click', function(e) {
+                e.stopPropagation();
+                attemptPlay(true);
+            });
+        }
+
+        // WeChat WebView and other strict environments often need a user gesture.
+        // Try autoplay first, then show poster + play button on failure.
+        startFallbackTimer();
+        attemptPlay(false);
+    })();
 
     // Subtle reveal on scroll
     const revealElements = document.querySelectorAll(
