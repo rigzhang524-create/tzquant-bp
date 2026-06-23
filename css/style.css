@@ -659,6 +659,74 @@ img {
     color: var(--text);
 }
 
+/* Competitor comparison table */
+.competitor-table-wrap {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.competitor-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.competitor-table th,
+.competitor-table td {
+    padding: 18px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.competitor-table th {
+    font-weight: 600;
+    color: var(--text);
+    background: #fff;
+}
+
+.competitor-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.competitor-table tr:last-child td {
+    border-bottom: none;
+}
+
+.competitor-table .yes {
+    color: #2d8a3e;
+    font-weight: 600;
+}
+
+.competitor-table .yes.strong {
+    color: #1e6b2e;
+    font-size: 1.0625rem;
+}
+
+.competitor-table .partial {
+    color: #d68a00;
+    font-weight: 500;
+}
+
+.competitor-table .no {
+    color: #c41c1c;
+    font-weight: 500;
+}
+
+.competitor-table tr.highlight {
+    background: rgba(0, 113, 227, 0.06);
+}
+
+.competitor-table tr.highlight td {
+    color: var(--text);
+}
+
 /* Product */
 .product {
     background: var(--bg);
