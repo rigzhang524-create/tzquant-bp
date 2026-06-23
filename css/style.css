@@ -699,22 +699,26 @@ img {
     border-bottom: none;
 }
 
-.competitor-table .yes {
+.competitor-table .yes,
+.competitor-legend .yes {
     color: #2d8a3e;
     font-weight: 600;
 }
 
-.competitor-table .yes.strong {
+.competitor-table .yes.strong,
+.competitor-legend .yes.strong {
     color: #1e6b2e;
     font-size: 1.0625rem;
 }
 
-.competitor-table .partial {
+.competitor-table .partial,
+.competitor-legend .partial {
     color: #d68a00;
     font-weight: 500;
 }
 
-.competitor-table .no {
+.competitor-table .no,
+.competitor-legend .no {
     color: #c41c1c;
     font-weight: 500;
 }
