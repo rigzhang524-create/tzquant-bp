@@ -727,6 +727,32 @@ img {
     color: var(--text);
 }
 
+.competitor-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto 32px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.competitor-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.competitor-legend strong {
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    .competitor-legend {
+        gap: 12px 20px;
+    }
+}
+
 /* Product */
 .product {
     background: var(--bg);
