@@ -1112,17 +1112,27 @@ img {
 }
 
 .member-initial {
-    width: 64px;
-    height: 64px;
+    width: 4cm;
+    height: 4cm;
     margin: 0 auto 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--bg-soft);
     border-radius: 50%;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-secondary);
+}
+
+.member-photo {
+    width: 4cm;
+    height: 4cm;
+    margin: 0 auto 18px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
 }
 
 .team-card h3 {
