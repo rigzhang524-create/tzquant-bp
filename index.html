@@ -6,7 +6,7 @@
     <meta name="description" content="TzQuant Investor Deck">
     <title>TzQuant · Investor Deck</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-    <link rel="stylesheet" href="css/style.css?v=30">
+    <link rel="stylesheet" href="css/style.css?v=31">
     <script>
         // Prevent Chinese flash when English is saved
         (function() {
@@ -421,6 +421,36 @@
             </div>
 
             <p class="traction-summary" data-zh="已有 50+ 家机构客户，累计运行 500+ 个策略模型，其中 37 个已进入实盘交易。" data-en="50+ institutional clients, 500+ strategy models running, with 37 already in live trading.">已有 50+ 家机构客户，累计运行 500+ 个策略模型，其中 37 个已进入实盘交易。</p>
+
+            <div class="growth-sixmonths">
+                <h3 data-zh="过去 6 个月" data-en="Past 6 Months">过去 6 个月</h3>
+                <div class="growth-metrics">
+                    <div class="growth-metric">
+                        <span class="growth-value">300%</span>
+                        <span class="growth-label" data-zh="客户数增长" data-en="Client growth">客户数增长</span>
+                    </div>
+                    <div class="growth-metric">
+                        <span class="growth-value">450%</span>
+                        <span class="growth-label" data-zh="实盘策略增长" data-en="Live strategy growth">实盘策略增长</span>
+                    </div>
+                    <div class="growth-metric">
+                        <span class="growth-value">600%</span>
+                        <span class="growth-label" data-zh="日交易额增长" data-en="Daily trading volume growth">日交易额增长</span>
+                    </div>
+                </div>
+                <div class="growth-curve" aria-hidden="true">
+                    <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M0,100 C80,100 100,80 160,70 S240,50 300,30 S360,10 400,5 L400,120 L0,120 Z" fill="url(#curveFill)"/>
+                        <path d="M0,100 C80,100 100,80 160,70 S240,50 300,30 S360,10 400,5" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
 
             <blockquote class="traction-quote" data-zh="“以前一个策略从回测到实盘需要 3 周，现在 3 天。TzQuant 让我们敢做更高频的策略了。”" data-en="“It used to take three weeks to take a strategy from backtest to live trading; now it takes three days. TzQuant lets us pursue higher-frequency strategies with confidence.”">“以前一个策略从回测到实盘需要 3 周，现在 3 天。TzQuant 让我们敢做更高频的策略了。”</blockquote>
             <cite class="traction-cite" data-zh="—— 某头部量化私募合伙人" data-en="— Partner, Leading Quantitative Hedge Fund">—— 某头部量化私募合伙人</cite>

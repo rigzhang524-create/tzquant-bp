@@ -1113,6 +1113,64 @@ img {
     font-style: normal;
 }
 
+.growth-sixmonths {
+    max-width: 820px;
+    margin: 0 auto 56px;
+    text-align: center;
+}
+
+.growth-sixmonths h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+}
+
+.growth-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.growth-metric {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.growth-value {
+    display: block;
+    font-size: 1.875rem;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.growth-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.growth-curve {
+    height: 120px;
+    width: 100%;
+    border-radius: var(--radius);
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.growth-curve svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 /* Combined Business + Market */
 .combined {
     background: var(--bg);
@@ -1733,7 +1791,8 @@ img {
     .roadmap-grid,
     .team-grid,
     .metrics-row,
-    .traction-metrics {
+    .traction-metrics,
+    .growth-metrics {
         grid-template-columns: 1fr;
     }
 
