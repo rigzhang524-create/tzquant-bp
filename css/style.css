@@ -1202,27 +1202,35 @@ img {
 }
 
 .funding-plan {
-    max-width: 720px;
+    max-width: 960px;
     margin: 0 auto 40px;
     text-align: left;
     display: grid;
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 16px;
 }
 
 .fund-block {
     background: var(--bg-soft);
     border: 1px solid var(--border-light);
     border-radius: 16px;
-    padding: 24px 28px;
+    padding: 20px 22px;
 }
 
 .fund-block h3 {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
+}
+
+.fund-block > p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0 0 8px;
 }
 
 .fund-allocations {
@@ -1230,14 +1238,14 @@ img {
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 12px;
+    gap: 8px;
 }
 
 .fund-allocations li {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1rem;
+    gap: 10px;
+    font-size: 0.9375rem;
     color: var(--text);
 }
 
@@ -1245,17 +1253,17 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 48px;
-    padding: 4px 10px;
+    min-width: 44px;
+    padding: 3px 8px;
     border-radius: 999px;
     background: var(--accent);
     color: var(--bg);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 700;
 }
 
 .fund-value {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: var(--text);
     margin: 0;
@@ -1263,14 +1271,14 @@ img {
 
 .fund-milestones {
     list-style: none;
-    margin: 12px 0 0;
+    margin: 8px 0 0;
     padding: 0;
     display: grid;
-    gap: 10px;
+    gap: 6px;
 }
 
 .fund-milestones li {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     color: var(--text);
 }
 
@@ -1279,9 +1287,16 @@ img {
     font-weight: 700;
 }
 
+@media (max-width: 900px) {
+    .funding-plan {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+    }
+}
+
 @media (max-width: 640px) {
     .fund-block {
-        padding: 20px 22px;
+        padding: 18px 20px;
     }
 
     .fund-value {
