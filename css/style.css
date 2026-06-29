@@ -1204,10 +1204,8 @@ img {
 .funding-plan {
     max-width: 960px;
     margin: 0 auto 40px;
-    text-align: left;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: start;
     gap: 16px;
 }
 
@@ -1216,6 +1214,11 @@ img {
     border: 1px solid var(--border-light);
     border-radius: 16px;
     padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .fund-block h3 {
@@ -1239,11 +1242,13 @@ img {
     padding: 0;
     display: grid;
     gap: 8px;
+    width: 100%;
 }
 
 .fund-allocations li {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     font-size: 0.9375rem;
     color: var(--text);
@@ -1275,6 +1280,7 @@ img {
     padding: 0;
     display: grid;
     gap: 6px;
+    width: 100%;
 }
 
 .fund-milestones li {
