@@ -1201,6 +1201,94 @@ img {
     letter-spacing: 0.05em;
 }
 
+.funding-plan {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    text-align: left;
+    display: grid;
+    gap: 24px;
+}
+
+.fund-block {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 24px 28px;
+}
+
+.fund-block h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 16px;
+}
+
+.fund-allocations {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.fund-allocations li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.fund-pct {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 0.8125rem;
+    font-weight: 700;
+}
+
+.fund-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.fund-milestones {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.fund-milestones li {
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.fund-milestones li strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .fund-block {
+        padding: 20px 22px;
+    }
+
+    .fund-value {
+        font-size: 1.25rem;
+    }
+}
+
 /* Footer */
 .site-footer {
     background: var(--bg-soft);
