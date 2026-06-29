@@ -1240,31 +1240,33 @@ img {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
+    display: inline-grid;
     gap: 8px;
-    width: 100%;
+    width: auto;
 }
 
 .fund-allocations li {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
     font-size: 0.9375rem;
     color: var(--text);
+    text-align: left;
 }
 
 .fund-pct {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 44px;
-    padding: 3px 8px;
+    width: 44px;
+    padding: 3px 0;
     border-radius: 999px;
     background: var(--accent);
     color: var(--bg);
     font-size: 0.75rem;
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 .fund-value {
