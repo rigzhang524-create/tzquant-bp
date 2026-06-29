@@ -277,11 +277,12 @@ img {
 
 .hero h1 {
     font-size: 3rem;
-    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(2.75rem, 6vw, 4.25rem);
     font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 auto 20px;
+    max-width: 900px;
 }
 
 .hero-subhead {
