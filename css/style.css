@@ -1043,12 +1043,13 @@ img {
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     flex-grow: 1;
+    text-align: center;
 }
 
 .product-meta {
     display: flex;
     align-items: baseline;
-    justify-content: space-between;
+    justify-content: center;
     gap: 12px;
     margin-bottom: 12px;
     flex-wrap: wrap;
@@ -1081,6 +1082,7 @@ img {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 28px;
+    align-items: center;
 }
 
 .product-points li {
@@ -1088,6 +1090,7 @@ img {
     color: var(--text);
     position: relative;
     padding-left: 22px;
+    text-align: left;
 }
 
 .product-points li::before {
@@ -1109,6 +1112,7 @@ img {
     flex-direction: column;
     gap: 4px;
     margin-top: 0;
+    align-items: center;
 }
 
 .outcome-label {
