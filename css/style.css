@@ -1569,7 +1569,8 @@ img {
     line-height: 1.45;
 }
 
-.member-highlights li strong {
+.member-highlights li strong,
+.member-highlights li .highlight-label {
     display: inline-flex;
     align-items: center;
     justify-content: center;
