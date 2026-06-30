@@ -1588,8 +1588,10 @@ img {
 }
 
 .lang-en .member-highlights li .highlight-label {
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     line-height: 1.2;
+    max-width: 64px;
+    padding: 3px 6px;
 }
 
 /* Contact */
