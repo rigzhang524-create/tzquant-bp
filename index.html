@@ -6,7 +6,7 @@
     <meta name="description" content="TzQuant Investor Deck">
     <title>TzQuant · Investor Deck</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-    <link rel="stylesheet" href="css/style.css?v=36">
+    <link rel="stylesheet" href="css/style.css?v=37">
     <script>
         // Prevent Chinese flash when English is saved
         (function() {
@@ -403,61 +403,82 @@
         <div class="section-inner">
             <div class="section-head">
                 <span class="eyebrow" data-zh="产品" data-en="Product">产品</span>
-                <h2 data-zh="三大核心模块" data-en="Three Core Modules">三大核心模块</h2>
+                <h2 data-zh="Unified Quant Workflow" data-en="Unified Quant Workflow">Unified Quant Workflow</h2>
+                <p class="section-subhead" data-zh="从研究、回测到实盘执行，构建统一量化生产环境" data-en="From research and backtesting to live execution—one unified quant production environment">从研究、回测到实盘执行，构建统一量化生产环境</p>
             </div>
-            <div class="product-grid">
-                <div class="product-card">
+
+            <div class="workflow-flow" aria-hidden="true">
+                <span class="workflow-step">Research</span>
+                <span class="workflow-arrow">→</span>
+                <span class="workflow-step">Backtest</span>
+                <span class="workflow-arrow">→</span>
+                <span class="workflow-step">Live</span>
+            </div>
+
+            <div class="product-grid workflow-grid">
+                <div class="product-card workflow-card">
                     <div class="product-media">
                         <img src="assets/research.jpg" alt="TzQuant Research">
                     </div>
                     <div class="product-info">
-                        <h3>TzQuant Research</h3>
-                        <p class="product-subtitle" data-zh="策略研究" data-en="Strategy Research">策略研究</p>
-                        <p class="product-desc" data-zh="面向研究员的统一策略开发环境，整合数据、因子、模型与协作工具，让策略想法快速进入可验证阶段。" data-en="A unified strategy development environment for researchers, integrating data, factors, models, and collaboration tools to turn ideas into testable strategies faster.">面向研究员的统一策略开发环境，整合数据、因子、模型与协作工具，让策略想法快速进入可验证阶段。</p>
-                        <ul>
-                            <li data-zh="多因子模型构建与因子库管理" data-en="Multi-factor model construction and factor library management">多因子模型构建与因子库管理</li>
-                            <li data-zh="机器学习信号挖掘与特征工程" data-en="Machine learning signal mining and feature engineering">机器学习信号挖掘与特征工程</li>
-                            <li data-zh="可视化因子分析与 IC/收益归因" data-en="Visual factor analysis with IC and return attribution">可视化因子分析与 IC/收益归因</li>
-                            <li data-zh="AI Agent 辅助策略生成与代码优化" data-en="AI Agent-assisted strategy generation and code optimization">AI Agent 辅助策略生成与代码优化</li>
-                            <li data-zh="Notebook / Python SDK / 低代码研究界面" data-en="Notebook, Python SDK, and low-code research interface">Notebook / Python SDK / 低代码研究界面</li>
-                            <li data-zh="团队协作、版本管理与策略知识库" data-en="Team collaboration, version control, and strategy knowledge base">团队协作、版本管理与策略知识库</li>
+                        <div class="product-meta">
+                            <h3>TzQuant Research</h3>
+                            <span class="product-tag" data-zh="策略研究" data-en="Strategy Research">策略研究</span>
+                        </div>
+                        <p class="product-lead" data-zh="统一研究环境，加速 Alpha 发现与策略构建。" data-en="A unified research environment that accelerates alpha discovery and strategy construction.">统一研究环境，加速 Alpha 发现与策略构建。</p>
+                        <ul class="product-points">
+                            <li data-zh="AI 辅助策略生成" data-en="AI-assisted strategy generation">AI 辅助策略生成</li>
+                            <li data-zh="因子分析与信号挖掘" data-en="Factor analysis and signal mining">因子分析与信号挖掘</li>
+                            <li data-zh="Notebook / SDK 协作环境" data-en="Notebook and SDK collaboration environment">Notebook / SDK 协作环境</li>
                         </ul>
+                        <div class="product-outcome">
+                            <span class="outcome-label" data-zh="Idea → Strategy within hours" data-en="Idea → Strategy within hours">Idea → Strategy within hours</span>
+                            <span class="outcome-note" data-zh="从想法到可验证策略，仅需数小时" data-en="From idea to testable strategy in hours">从想法到可验证策略，仅需数小时</span>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+
+                <div class="product-card workflow-card">
                     <div class="product-media">
                         <img src="assets/backtest.jpg" alt="TzQuant Backtest">
                     </div>
                     <div class="product-info">
-                        <h3>TzQuant Backtest</h3>
-                        <p class="product-subtitle" data-zh="回测分析" data-en="Backtest Analysis">回测分析</p>
-                        <p class="product-desc" data-zh="基于 Tick 级数据的事件驱动回测引擎，真实还原交易环境，显著降低策略上线后的收益偏离。" data-en="An event-driven backtest engine powered by tick-level data that faithfully replicates the trading environment, significantly reducing post-deployment return deviation.">基于 Tick 级数据的事件驱动回测引擎，真实还原交易环境，显著降低策略上线后的收益偏离。</p>
-                        <ul>
-                            <li data-zh="Tick 级事件驱动回测引擎" data-en="Tick-level event-driven backtest engine">Tick 级事件驱动回测引擎</li>
-                            <li data-zh="真实交易成本建模（滑点、冲击、税费）" data-en="Realistic transaction cost modeling (slippage, market impact, fees)">真实交易成本建模（滑点、冲击、税费）</li>
-                            <li data-zh="多维度风险指标全景报告" data-en="Comprehensive multi-dimensional risk metrics reporting">多维度风险指标全景报告</li>
-                            <li data-zh="多资产、多策略、多时间框架并行回测" data-en="Parallel backtesting across multi-asset, multi-strategy, and multi-timeframe">多资产、多策略、多时间框架并行回测</li>
-                            <li data-zh="参数敏感性分析与压力测试" data-en="Parameter sensitivity analysis and stress testing">参数敏感性分析与压力测试</li>
-                            <li data-zh="一键对接实盘，策略无需重写" data-en="One-click live deployment without rewriting strategies">一键对接实盘，策略无需重写</li>
+                        <div class="product-meta">
+                            <h3>TzQuant Backtest</h3>
+                            <span class="product-tag" data-zh="策略验证" data-en="Strategy Validation">策略验证</span>
+                        </div>
+                        <p class="product-lead" data-zh="真实市场建模，降低回测与实盘偏差。" data-en="Realistic market modeling that reduces backtest-to-live drift.">真实市场建模，降低回测与实盘偏差。</p>
+                        <ul class="product-points">
+                            <li data-zh="Tick 级事件驱动回测" data-en="Tick-level event-driven backtesting">Tick 级事件驱动回测</li>
+                            <li data-zh="真实交易成本模拟" data-en="Realistic transaction cost simulation">真实交易成本模拟</li>
+                            <li data-zh="多资产、多策略测试" data-en="Multi-asset, multi-strategy testing">多资产、多策略测试</li>
                         </ul>
+                        <div class="product-outcome">
+                            <span class="outcome-label" data-zh="Reduce simulation-to-live drift" data-en="Reduce simulation-to-live drift">Reduce simulation-to-live drift</span>
+                            <span class="outcome-note" data-zh="降低回测与实盘偏离" data-en="Lower backtest-to-live deviation">降低回测与实盘偏离</span>
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
+
+                <div class="product-card workflow-card">
                     <div class="product-media">
                         <img src="assets/live.jpg" alt="TzQuant Live">
                     </div>
                     <div class="product-info">
-                        <h3>TzQuant Live</h3>
-                        <p class="product-subtitle" data-zh="实盘交易" data-en="Live Trading">实盘交易</p>
-                        <p class="product-desc" data-zh="自研低延迟交易核心，支持券商直连与算法订单，覆盖事前事中事后全链路风控。" data-en="A proprietary low-latency trading core with direct broker connectivity and algorithmic order types, covering full-chain risk control before, during, and after trading.">自研低延迟交易核心，支持券商直连与算法订单，覆盖事前事中事后全链路风控。</p>
-                        <ul>
-                            <li data-zh="毫秒级低延迟订单执行" data-en="Millisecond-level low-latency order execution">毫秒级低延迟订单执行</li>
-                            <li data-zh="智能订单路由与算法交易（TWAP/VWAP/POV）" data-en="Intelligent order routing and algorithmic trading (TWAP/VWAP/POV)">智能订单路由与算法交易（TWAP/VWAP/POV）</li>
-                            <li data-zh="实时风控监控与异常自动熔断" data-en="Real-time risk monitoring with automatic circuit breakers">实时风控监控与异常自动熔断</li>
-                            <li data-zh="多券商、多账户统一接入与调度" data-en="Unified multi-broker and multi-account connectivity and scheduling">多券商、多账户统一接入与调度</li>
-                            <li data-zh="实盘与回测环境一致性校验" data-en="Consistency validation between live and backtest environments">实盘与回测环境一致性校验</li>
-                            <li data-zh="实时盈亏、持仓与执行质量分析" data-en="Real-time P&L, positions, and execution quality analytics">实时盈亏、持仓与执行质量分析</li>
+                        <div class="product-meta">
+                            <h3>TzQuant Live</h3>
+                            <span class="product-tag" data-zh="实盘执行" data-en="Live Execution">实盘执行</span>
+                        </div>
+                        <p class="product-lead" data-zh="低延迟执行与实时风控的一体化交易环境。" data-en="An integrated trading environment for low-latency execution and real-time risk control.">低延迟执行与实时风控的一体化交易环境。</p>
+                        <ul class="product-points">
+                            <li data-zh="智能订单路由" data-en="Intelligent order routing">智能订单路由</li>
+                            <li data-zh="实时风控监控" data-en="Real-time risk monitoring">实时风控监控</li>
+                            <li data-zh="多券商统一接入" data-en="Unified multi-broker connectivity">多券商统一接入</li>
                         </ul>
+                        <div class="product-outcome">
+                            <span class="outcome-label" data-zh="Production-ready trading infrastructure" data-en="Production-ready trading infrastructure">Production-ready trading infrastructure</span>
+                            <span class="outcome-note" data-zh="机构级实盘环境" data-en="Institutional-grade live environment">机构级实盘环境</span>
+                        </div>
                     </div>
                 </div>
             </div>

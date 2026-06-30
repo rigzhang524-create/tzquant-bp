@@ -959,6 +959,31 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    align-items: stretch;
+}
+
+.workflow-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.workflow-step {
+    padding: 8px 16px;
+    border-radius: 100px;
+    background: var(--bg-soft);
+    color: var(--text);
+}
+
+.workflow-arrow {
+    font-size: 1.25rem;
+    color: var(--accent);
 }
 
 .product-card {
@@ -969,23 +994,26 @@ img {
     flex-direction: column;
     -webkit-transition: var(--transition);
     transition: var(--transition);
+    border: 1px solid transparent;
 }
 
 .product-card:hover {
     -webkit-transform: translateY(-6px);
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+    border-color: var(--border-light);
 }
 
 .product-media {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
+    background: #f0f0f2;
 }
 
-@supports not (aspect-ratio: 4 / 3) {
+@supports not (aspect-ratio: 16 / 9) {
     .product-media {
         position: relative;
-        padding-top: 75%;
+        padding-top: 56.25%;
     }
 
     .product-media img {
@@ -1006,8 +1034,8 @@ img {
 }
 
 .product-card:hover .product-media img {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .product-info {
@@ -1017,44 +1045,82 @@ img {
     flex-grow: 1;
 }
 
-.product-info h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-.product-info .product-subtitle {
-    font-size: 1rem;
-    color: var(--text-secondary);
+.product-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
     margin-bottom: 12px;
+    flex-wrap: wrap;
 }
 
-.product-info .product-desc {
-    font-size: 0.9375rem;
-    line-height: 1.6;
+.product-info h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.product-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.product-lead {
+    font-size: 1rem;
+    line-height: 1.5;
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
-.product-info ul {
+.product-points {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: auto;
+    gap: 10px;
+    margin-bottom: 28px;
 }
 
-.product-info li {
+.product-points li {
     font-size: 0.9375rem;
-    color: var(--text-secondary);
+    color: var(--text);
     position: relative;
-    padding-left: 14px;
+    padding-left: 22px;
 }
 
-.product-info li::before {
-    content: '-';
+.product-points li::before {
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--text-muted);
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230071e3' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.product-outcome {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.outcome-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.outcome-note {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
 }
 
 /* Traction */
@@ -1758,6 +1824,19 @@ img {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .workflow-flow {
+        gap: 12px;
+        font-size: 0.8125rem;
+    }
+
+    .workflow-step {
+        padding: 6px 12px;
+    }
+
+    .workflow-arrow {
+        font-size: 1rem;
+    }
+
     .metrics-row {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1825,6 +1904,11 @@ img {
     .traction-metrics,
     .growth-metrics {
         grid-template-columns: 1fr;
+    }
+
+    .workflow-flow {
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .contact-email {
