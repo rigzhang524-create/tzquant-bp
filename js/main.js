@@ -47,6 +47,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Scrollspy: highlight current nav item based on scroll position
+    (function initScrollSpy() {
+        const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+        const sections = navLinks
+            .map(link => {
+                const id = link.getAttribute('href').slice(1);
+                return { link, section: document.getElementById(id) };
+            })
+            .filter(item => item.section);
+
+        if (!sections.length) return;
+
+        function setActive(link) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        }
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 100;
+            let active = sections[0];
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                if (sections[i].section.offsetTop <= scrollPos) {
+                    active = sections[i];
+                    break;
+                }
+            }
+
+            setActive(active.link);
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => setActive(link));
+        });
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
+    })();
+
     // Language switcher
     function setLanguage(lang) {
         document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';

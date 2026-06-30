@@ -119,8 +119,13 @@ img {
     transition: opacity 0.2s ease;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav a.active {
     opacity: 1;
+}
+
+.site-nav a.active {
+    font-weight: 600;
 }
 
 .header-cta {
@@ -1187,14 +1192,21 @@ img {
     font-style: italic;
     line-height: 1.6;
     color: var(--text-secondary);
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
     max-width: 540px;
+    text-align: center;
 }
 
 .business-list {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.business-item {
+    text-align: center;
 }
 
 .business-item h3 {
@@ -1210,21 +1222,26 @@ img {
 }
 
 .market-col {
-    padding-left: 64px;
-    border-left: 1px solid var(--border-light);
+    padding-top: 64px;
+    border-top: 1px solid var(--border-light);
+    margin-top: 64px;
+    text-align: center;
 }
 
 .market-list {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .market-item {
-    display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 16px;
-    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    text-align: center;
 }
 
 .market-label {
@@ -1244,9 +1261,9 @@ img {
 }
 
 .market-item p {
-    grid-column: 2;
     font-size: 0.9375rem;
     color: var(--text-secondary);
+    text-align: center;
 }
 
 /* Advantage */
@@ -1738,10 +1755,11 @@ img {
     }
 
     .market-col {
-        padding-left: 0;
-        border-left: none;
         padding-top: 48px;
         border-top: 1px solid var(--border-light);
+        border-left: none;
+        margin-top: 48px;
+        text-align: center;
     }
 }
 
