@@ -1040,8 +1040,8 @@ img {
 
 .product-info {
     padding: 32px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
     flex-grow: 1;
 }
 
@@ -1073,7 +1073,6 @@ img {
     line-height: 1.5;
     color: var(--text-secondary);
     margin-bottom: 24px;
-    min-height: 3em;
 }
 
 .product-points {
@@ -1082,7 +1081,6 @@ img {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 28px;
-    flex-grow: 1;
 }
 
 .product-points li {
