@@ -1073,6 +1073,7 @@ img {
     line-height: 1.5;
     color: var(--text-secondary);
     margin-bottom: 24px;
+    min-height: 3em;
 }
 
 .product-points {
@@ -1081,6 +1082,7 @@ img {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 28px;
+    flex-grow: 1;
 }
 
 .product-points li {
@@ -1103,12 +1105,12 @@ img {
 }
 
 .product-outcome {
-    margin-top: auto;
     padding-top: 24px;
     border-top: 1px solid var(--border-light);
     display: flex;
     flex-direction: column;
     gap: 4px;
+    margin-top: 0;
 }
 
 .outcome-label {
