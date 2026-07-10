@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a PDF from index.html, excluding video assets."""
+"""Generate a bilingual PDF from index.html (Chinese first, then English)."""
 import os
 import subprocess
 import sys
@@ -14,26 +14,68 @@ PDF_PATH = BASE_DIR / "TzQuant_Investor_Deck.pdf"
 CHROME_PATH = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 
+def translate_section(section, lang="en"):
+    """Return a cloned section with translated content."""
+    clone = BeautifulSoup(str(section), "lxml").find("section")
+    for el in clone.find_all(attrs={f"data-{lang}": True}):
+        if el.get(f"data-{lang}") is not None:
+            el.string = el[f"data-{lang}"]
+    for el in clone.find_all(attrs={f"data-{lang}-html": True}):
+        html_val = el.get(f"data-{lang}-html")
+        if html_val is not None:
+            el.clear()
+            el.append(BeautifulSoup(html_val, "lxml"))
+    return clone
+
+
 def prepare_html():
     text = HTML_PATH.read_text(encoding="utf-8")
     soup = BeautifulSoup(text, "lxml")
 
-    # Remove all <video> elements and the poster play button.
+    # Remove video and poster play button.
     for video in soup.find_all("video"):
         video.decompose()
     for btn in soup.find_all(class_="poster-play"):
         btn.decompose()
 
-    # The original HTML uses <div class="section-inner"> but the CSS expects
-    # <div class="section-inner two-col"> for the combined Business+Market
-    # section. Add the missing class so the two columns render side-by-side.
-    combined = soup.find("section", id="business")
-    if combined:
-        inner = combined.find("div", class_="section-inner")
+    # Build bilingual body: header, Chinese sections, divider, English sections, footer.
+    body = soup.find("body")
+    chinese_sections = list(body.find_all("section", recursive=False))
+    english_sections = [translate_section(s, "en") for s in chinese_sections]
+
+    header = body.find("header", recursive=False)
+    footer = body.find("footer", recursive=False)
+
+    new_body = BeautifulSoup("", "lxml")
+    if header:
+        new_body.append(BeautifulSoup(str(header), "lxml").find("header"))
+
+    for sec in chinese_sections:
+        new_body.append(sec)
+
+    divider = new_body.new_tag("div")
+    divider["class"] = "lang-divider"
+    divider.string = "English Version"
+    new_body.append(divider)
+
+    for sec in english_sections:
+        sec["class"] = (sec.get("class") or []) + ["english-version"]
+        new_body.append(sec)
+
+    if footer:
+        new_body.append(BeautifulSoup(str(footer), "lxml").find("footer"))
+
+    body.clear()
+    for child in list(new_body.children):
+        body.append(child)
+
+    # Add two-col class to both Chinese and English business sections.
+    for section in soup.find_all("section", id="business"):
+        inner = section.find("div", class_="section-inner")
         if inner and "two-col" not in (inner.get("class") or []):
             inner["class"] = (inner.get("class") or []) + ["two-col"]
 
-    # Remove the original screen stylesheet and inject a print-optimised one.
+    # Remove original screen stylesheet and inject print-optimised one.
     link = soup.find("link", rel="stylesheet")
     if link:
         link.decompose()
@@ -50,6 +92,8 @@ a { color: inherit; text-decoration: none; }
 
 /* Hide interactive/header/footer elements */
 .site-header, .menu-toggle, .lang-toggle, .header-cta, .poster-play, video, .hero-links, .site-footer { display: none !important; }
+
+.lang-divider { text-align: center; font-size: 1.2rem; font-weight: 700; padding: 30px 0 10px; margin: 10px 0; border-top: 2px solid #0071e3; color: #0071e3; text-transform: uppercase; letter-spacing: 0.1em; page-break-before: always; }
 
 /* Layout */
 .hero { padding: 40px 0 20px; text-align: center; }
@@ -220,7 +264,7 @@ def generate_pdf(html_path: Path, pdf_path: Path):
 
 
 def main():
-    print("Preparing HTML without video assets...")
+    print("Preparing bilingual HTML without video assets...")
     html_path = prepare_html()
     print(f"Saved temporary HTML to {html_path}")
 
