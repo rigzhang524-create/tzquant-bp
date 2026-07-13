@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif; }
+body { margin: 0; }
+.slide { width: 297mm; height: 210mm; padding: 14mm 16mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+.slide:last-child { page-break-after: auto; }
+.slide-dark { background: #0a0a12; color: #f5f5f7; }
+.slide-light { background: #f5f5f7; color: #1d1d1f; }
+.center { justify-content: center; text-align: center; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #0071e3; margin-bottom: 8px; display: block; }
+.slide-title { font-size: 32px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
+.slide-subtitle { font-size: 17px; color: #aeaeb3; margin-bottom: 18px; line-height: 1.5; }
+.slide-body, .slide-summary, .split-body { font-size: 15px; line-height: 1.7; color: #6e6e73; max-width: 95%; }
+.slide-dark .slide-body, .slide-dark .slide-subtitle { color: #aeaeb3; }
+
+.cover-title { font-size: 46px; font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
+.cover-subtitle { font-size: 20px; color: #aeaeb3; max-width: 80%; margin: 0 auto; }
+.big-quote { font-size: 26px; font-style: italic; line-height: 1.5; max-width: 88%; margin: 0 auto 28px; text-align: center; }
+cite { display: block; text-align: center; font-size: 16px; color: #aeaeb3; }
+.big-bullets { list-style: none; max-width: 75%; margin: 18px auto 0; text-align: left; }
+.big-bullets li { font-size: 18px; padding: 10px 0 10px 28px; position: relative; color: #f5f5f7; }
+.big-bullets li::before { content: "→"; position: absolute; left: 0; color: #0071e3; font-weight: 700; }
+.center-body { font-size: 18px; color: #aeaeb3; max-width: 80%; margin: 0 auto 12px; }
+
+.metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+.metrics-row.growth { grid-template-columns: repeat(3, 1fr); }
+.metric { background: #fff; border-radius: 12px; padding: 18px 10px; text-align: center; border: 1px solid #e8e8ed; }
+.slide-dark .metric { background: #15151f; border-color: #2a2a3a; }
+.metric-value { font-size: 28px; font-weight: 800; color: #0071e3; display: block; }
+.metric-label { font-size: 12px; color: #1d1d1f; margin-top: 6px; display: block; }
+.slide-dark .metric-label { color: #f5f5f7; }
+
+.split-body { margin-bottom: 18px; }
+.split-body p { margin-bottom: 10px; }
+
+.cards-grid { display: grid; gap: 14px; margin-top: 14px; }
+.cards-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.info-card { background: #fff; border-radius: 14px; padding: 18px; border: 1px solid #e8e8ed; }
+.slide-dark .info-card { background: #15151f; border-color: #2a2a3a; }
+.info-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #1d1d1f; }
+.slide-dark .info-card h3 { color: #f5f5f7; }
+.info-card p { font-size: 14px; color: #6e6e73; line-height: 1.55; }
+
+.competitor-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; background: #fff; border-radius: 12px; overflow: hidden; }
+.slide-dark .competitor-table { background: #15151f; }
+.competitor-table th, .competitor-table td { padding: 10px 8px; text-align: center; border-bottom: 1px solid #e8e8ed; }
+.slide-dark .competitor-table th, .slide-dark .competitor-table td { border-color: #2a2a3a; }
+.competitor-table th { background: #101018; color: #f5f5f7; }
+.competitor-table td:first-child { text-align: left; font-weight: 600; padding-left: 14px; }
+.competitor-table tr.highlight { background: rgba(0,113,227,0.1); }
+.competitor-table tr.highlight td { color: #0071e3; font-weight: 700; }
+
+.growth-title { font-size: 18px; margin-top: 18px; margin-bottom: 6px; }
+.slide-quote { font-size: 15px; font-style: italic; color: #6e6e73; margin-top: 18px; line-height: 1.6; }
+.slide-dark .slide-quote { color: #aeaeb3; }
+
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+.product-card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #e8e8ed; }
+.slide-dark .product-card { background: #15151f; border-color: #2a2a3a; }
+.product-media { height: 90px; overflow: hidden; }
+.product-media img { width: 100%; height: 100%; object-fit: cover; }
+.product-info { padding: 12px; }
+.product-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.product-lead { font-size: 12px; color: #6e6e73; margin-bottom: 8px; }
+.product-points { list-style: none; }
+.product-points li { font-size: 11px; margin-bottom: 3px; padding-left: 12px; position: relative; }
+.product-points li::before { content: "·"; position: absolute; left: 0; color: #0071e3; font-weight: 700; }
+.outcome-label { display: block; margin-top: 10px; font-size: 12px; font-weight: 700; color: #0071e3; }
+
+.roadmap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px; }
+.roadmap-card { background: #fff; border-radius: 14px; padding: 18px; border: 1px solid #e8e8ed; }
+.slide-dark .roadmap-card { background: #15151f; border-color: #2a2a3a; }
+.roadmap-status { font-size: 12px; color: #0071e3; font-weight: 700; margin-bottom: 8px; display: block; }
+.roadmap-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.roadmap-card p { font-size: 13px; color: #6e6e73; line-height: 1.5; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 14px; }
+.col-block h3 { font-size: 13px; color: #0071e3; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+.col-block h4 { font-size: 17px; font-weight: 700; margin: 10px 0 4px; }
+.col-block p { font-size: 14px; color: #6e6e73; line-height: 1.5; }
+
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+.team-card { background: #fff; border-radius: 14px; padding: 14px; display: flex; gap: 12px; border: 1px solid #e8e8ed; }
+.slide-dark .team-card { background: #15151f; border-color: #2a2a3a; }
+.member-photo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.team-card h3 { font-size: 17px; margin-bottom: 2px; }
+.member-role { font-size: 11px; color: #0071e3; font-weight: 600; }
+.member-tagline { font-size: 11px; color: #6e6e73; margin: 4px 0; line-height: 1.35; }
+.team-card ul { list-style: none; }
+.team-card li { font-size: 11px; margin-bottom: 2px; padding-left: 10px; position: relative; }
+.team-card li::before { content: "→"; position: absolute; left: 0; color: #0071e3; font-size: 9px; }
+
+.funding-plan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+.fund-block { background: #fff; border-radius: 14px; padding: 16px; border: 1px solid #e8e8ed; }
+.fund-block h3 { font-size: 13px; color: #0071e3; margin-bottom: 10px; }
+.fund-value { font-size: 24px; font-weight: 700; }
+.fund-block ul { list-style: none; }
+.fund-block li { font-size: 13px; margin-bottom: 5px; }
+.contact-email { font-size: 28px; color: #0071e3; font-weight: 600; text-align: center; display: block; margin-top: 16px; text-decoration: none; }
+.contact-location { text-align: center; color: #aeaeb3; margin-top: 4px; }
+
+.footer { position: absolute; bottom: 12mm; left: 16mm; right: 16mm; font-size: 11px; color: #aeaeb3; display: flex; justify-content: space-between; }
+</style></head><body><section class="slide slide-dark center" id="cover"><span class="eyebrow">TzQuant IDE</span><h1 class="cover-title">为量化私募打造一体化基础设施</h1><p class="cover-subtitle">从研究 → 回测 → 实盘，将策略上线周期从3周缩短到3天，降低30%+实盘偏差</p><div class="footer"><span>TzQuant IDE</span><span>1/14</span></div></section><section class="slide slide-dark" id="problem"><blockquote class="big-quote">“我们见过太多优秀的策略团队，因为回测环境与实盘偏差超过30%，上线首日就触发风控——这不是能力的差距，是基础设施的缺失。”</blockquote><cite>—— TzQuant 创始人</cite><div class="footer"><span>TzQuant IDE</span><span>2/14</span></div></section><section class="slide slide-light" id="why-ide"><span class="eyebrow">为什么需要量化 IDE</span><h2 class="slide-title">策略开发工具链正在割裂</h2><div class="split-body"><p>研究员要在 Jupyter、数据库、回测框架、交易终端之间反复切换，数据清洗占去 60% 时间。</p><p>真正需要的不是更多工具，而是一个集数据、研究、回测、风控于一体的量化 IDE。</p></div><div class="metrics-row"><div class="metric"><span class="metric-value">60%</span><span class="metric-label">时间浪费在数据清洗</span></div><div class="metric"><span class="metric-value">4+</span><span class="metric-label">工具系统来回切换</span></div><div class="metric"><span class="metric-value">30%+</span><span class="metric-label">回测/实盘偏差</span></div><div class="metric"><span class="metric-value">3周</span><span class="metric-label">传统策略上线周期</span></div></div><div class="footer"><span>TzQuant IDE</span><span>3/14</span></div></section><section class="slide slide-dark" id="ide-intro"><span class="eyebrow">产品介绍</span><h2 class="slide-title">TzQuant IDE：
+为量化策略而生的生产环境</h2><p class="center-body">一站式覆盖策略开发全生命周期，从数据探索、因子研究、AI 生成、回测验证到实盘部署，全部在一个环境中完成。</p><ul class="big-bullets"><li>Notebook / SDK 双模协作研究</li><li>AI Agent 辅助策略生成与因子挖掘</li><li>Tick 级真实市场回测</li><li>一键部署至低延迟实盘交易</li><li>事前/事中/事后全链路风控</li></ul><div class="footer"><span>TzQuant IDE</span><span>4/14</span></div></section><section class="slide slide-light" id="ide-features"><span class="eyebrow">IDE 核心能力</span><h2 class="slide-title">研究员无需离开编辑器</h2><div class="cards-grid cols-2"><div class="info-card"><h3>统一数据工作台</h3><p>行情、财务、另类数据一键接入；SQL / Python / API 任意方式查询，数据版本可追溯。</p></div><div class="info-card"><h3>AI 策略助手</h3><p>自然语言生成策略框架、自动补全因子逻辑、解释回测结果，降低策略开发门槛。</p></div><div class="info-card"><h3>原生回测引擎</h3><p>Tick 级事件驱动、真实交易成本建模、多资产多策略并行，回测即生产。</p></div><div class="info-card"><h3>实盘一键发布</h3><p>从研究到实盘无需重写代码，内置智能路由、实时风控、多券商统一接入。</p></div></div><div class="footer"><span>TzQuant IDE</span><span>5/14</span></div></section><section class="slide slide-dark" id="ide-vs-others"><span class="eyebrow">竞品对比</span><h2 class="slide-title">TzQuant IDE 专注机构级闭环</h2><p class="slide-body">不追求功能堆砌，而是把“研究—回测—实盘”闭环做深。</p><table class="competitor-table"><thead><tr><th>平台</th><th>AI Agent</th><th>开放研究</th><th>社区协作</th><th>策略执行</th></tr></thead><tbody><tr class=""><td>WorldQuant BRAIN</td><td>△</td><td>△</td><td>✓</td><td>✓</td></tr><tr class=""><td>QuantConnect</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td></tr><tr class=""><td>JoinQuant</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td></tr><tr class=""><td>RiceQuant</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td></tr><tr class=""><td>Hugging Face</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td></tr><tr class="highlight"><td>TzQuant</td><td>✓✓</td><td>✓✓</td><td>✓✓</td><td>✓</td></tr></tbody></table><div class="footer"><span>TzQuant IDE</span><span>6/14</span></div></section><section class="slide slide-dark" id="why-now"><span class="eyebrow">Why now</span><h2 class="slide-title">量化 IDE 进入爆发窗口</h2><div class="cards-grid cols-2"><div class="info-card"><h3>AI 正在重构策略研究流程</h3><p>大模型与自动化工具正在显著降低策略开发门槛，提高研究效率，机构可以更快地生成、测试和优化策略。</p></div><div class="info-card"><h3>多资产交易需求快速增长</h3><p>机构正在从单一股票策略扩展至股票、期货、期权、加密资产和跨市场套利，多资产环境使系统复杂度显著提升。</p></div><div class="info-card"><h3>机构需求正在升级</h3><p>机构已经从单一工具需求，转向统一、稳定、可扩展的量化生产环境，需要覆盖研究、回测、执行和风控的完整工作流。</p></div><div class="info-card"><h3>基础设施生态已经成熟</h3><p>云计算、实时数据接口、交易API以及计算资源成本下降，使机构级量化平台具备成熟落地条件。</p></div></div><div class="footer"><span>TzQuant IDE</span><span>7/14</span></div></section><section class="slide slide-light" id="traction"><span class="eyebrow">验证</span><h2 class="slide-title">TzQuant IDE 已被机构验证</h2><p class="slide-summary">已有 20+ 家机构客户，累计运行 100+ 个策略模型，其中 10 个已进入实盘交易。</p><div class="metrics-row"><div class="metric"><span class="metric-value">90%</span><span class="metric-label">策略上线周期缩短</span></div><div class="metric"><span class="metric-value">~$50M</span><span class="metric-label">日均交易额</span></div><div class="metric"><span class="metric-value">95%+</span><span class="metric-label">客户月留存率</span></div><div class="metric"><span class="metric-value">2.4×</span><span class="metric-label">平均机构扩容率</span></div></div><h3 class="growth-title">过去 6 个月</h3><div class="metrics-row growth"><div class="metric"><span class="metric-value">300%</span><span class="metric-label">客户数增长</span></div><div class="metric"><span class="metric-value">450%</span><span class="metric-label">实盘策略增长</span></div><div class="metric"><span class="metric-value">600%</span><span class="metric-label">日交易额增长</span></div></div><p class="slide-quote">“以前一个策略从回测到实盘需要 3 周，现在 3 天。TzQuant 让我们敢做更高频的策略了。”</p><div class="footer"><span>TzQuant IDE</span><span>8/14</span></div></section><section class="slide slide-dark" id="modules"><span class="eyebrow">工作流</span><h2 class="slide-title">研究 → 回测 → 实盘，一气呵成</h2><div class="product-grid"><div class="product-card"><div class="product-media"><img src="assets/research.jpg"/></div><div class="product-info"><h3>量化研究</h3><p class="product-lead">统一研究环境，加速 Alpha 发现与策略构建。</p><ul class="product-points"><li>AI 辅助策略生成</li><li>因子分析与信号挖掘</li><li>Notebook / SDK 协作环境</li></ul><span class="outcome-label">从想法到可验证策略，仅需数小时</span></div></div><div class="product-card"><div class="product-media"><img src="assets/backtest.jpg"/></div><div class="product-info"><h3>策略回测</h3><p class="product-lead">真实市场建模，降低回测与实盘偏差。</p><ul class="product-points"><li>Tick 级事件驱动回测</li><li>真实交易成本模拟</li><li>多资产、多策略测试</li></ul><span class="outcome-label">降低回测与实盘偏离</span></div></div><div class="product-card"><div class="product-media"><img src="assets/live.jpg"/></div><div class="product-info"><h3>实盘执行</h3><p class="product-lead">低延迟执行与实时风控的一体化交易环境。</p><ul class="product-points"><li>智能订单路由</li><li>实时风控监控</li><li>多券商统一接入</li></ul><span class="outcome-label">机构级实盘环境</span></div></div></div><div class="footer"><span>TzQuant IDE</span><span>9/14</span></div></section><section class="slide slide-light" id="moat"><span class="eyebrow">护城河</span><h2 class="slide-title">IDE 背后的原生架构</h2><div class="cards-grid cols-2"><div class="info-card"><h3>全链路闭环</h3><p>研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。</p></div><div class="info-card"><h3>低延迟执行</h3><p>自研交易核心，订单处理延迟低于毫秒级，支持高频与算法交易场景。</p></div><div class="info-card"><h3>真实回测</h3><p>Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。</p></div><div class="info-card"><h3>开放生态</h3><p>标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。</p></div></div><p class="slide-quote">“这四件事，单做任何一件都不算难。但融于一套原生架构，意味着研究员不再做数据搬运工，策略从回测到实盘无需重写第二遍——我们为此重构了18个月。这不是功能堆砌，是量化基础设施该有的样子。”</p><div class="footer"><span>TzQuant IDE</span><span>10/14</span></div></section><section class="slide slide-dark" id="roadmap"><span class="eyebrow">Roadmap</span><h2 class="slide-title">TzQuant IDE 成长路径</h2><div class="roadmap-grid"><div class="roadmap-card"><span class="roadmap-status">已完成</span><h3>产品验证</h3><p>核心平台上线，获得 50+ 机构客户，验证产品与商业模式。</p></div><div class="roadmap-card"><span class="roadmap-status">2026</span><h3>规模扩张</h3><p>拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。</p></div><div class="roadmap-card"><span class="roadmap-status">2027</span><h3>生态构建</h3><p>开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。</p></div><div class="roadmap-card"><span class="roadmap-status">2028</span><h3>全球化</h3><p>拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。</p></div></div><div class="footer"><span>TzQuant IDE</span><span>11/14</span></div></section><section class="slide slide-light" id="business"><span class="eyebrow">商业模式 &amp; 市场</span><h2 class="slide-title">三层收入 + 巨大市场空间</h2><div class="two-col"><div class="col-block"><h3>商业模式</h3><p>SaaS 订阅覆盖基础，交易分成与客户共成长，定制开发服务头部——三层收入结构，层层递进。</p><h4>SaaS 订阅</h4><p>按模块与数据量分级订阅，覆盖研究、回测与基础交易需求。</p><h4>交易分成</h4><p>基于实盘交易规模收取技术服务费，与客户增长深度绑定。</p><h4>定制开发</h4><p>为大型机构提供私有化部署、策略定制与系统对接服务。</p></div><div class="col-block"><h3>市场</h3><p>中国量化交易技术服务市场总规模</p><p>专业服务型量化平台可服务市场</p><p>未来 3 年目标市场份额</p></div></div><div class="footer"><span>TzQuant IDE</span><span>12/14</span></div></section><section class="slide slide-dark" id="team"><span class="eyebrow">团队</span><h2 class="slide-title">由量化、科技与金融资深人士组成</h2><div class="team-grid"><div class="team-card"><img class="member-photo" src="assets/cynthia.png"/><div><h3>Cynthia</h3><span class="member-role">CEO</span><p class="member-tagline">连续创业者，推动 TzQuant 从实验室走向机构客户。</p><ul><li>2018 年与 Leo 共同发起天择量化前身项目</li><li>50+ 家机构客户的早期商业化验证</li><li>100 人规模量化团队的组织与交付机制</li></ul></div></div><div class="team-card"><img class="member-photo" src="assets/leo.png"/><div><h3>Leo</h3><span class="member-role">CTO</span><p class="member-tagline">10+ 年系统架构经验，主导 AI 量化平台与交易核心落地。</p><ul><li>2011 年起从区块链底层到金融系统全栈实践</li><li>$1B+ AUM 规模的 AI 量化平台搭建</li><li>Tick 级 回测引擎与低延迟交易核心落地</li></ul></div></div><div class="team-card"><img class="member-photo" src="assets/barry.jpg"/><div><h3>Barry</h3><span class="member-role">CFO</span><p class="member-tagline">前 500 强 M&amp;A 总监，主导融资与生态合作。</p><ul><li>5+ 年世界 500 强投资并购经验</li><li>多轮 融资与股权架构设计</li><li>大湾区 机构客户、券商与数据源生态对接</li></ul></div></div></div><div class="footer"><span>TzQuant IDE</span><span>13/14</span></div></section><section class="slide slide-light" id="funding"><span class="eyebrow">融资</span><h2 class="slide-title">Seeking $5M Seed</h2><p class="slide-subtitle">如果您对 TzQuant IDE 感兴趣，欢迎与我们联系。</p><div class="funding-plan"><div class="fund-block"><h3>用途</h3><ul><li>40% 核心研发</li><li>30% 数据采购</li><li>20% BD 增长</li><li>10% 合规运营</li></ul></div><div class="fund-block"><h3>现金流周期</h3><div class="fund-value">18–24 个月</div></div><div class="fund-block"><h3>里程碑</h3><ul><li>200 家机构客户</li><li>ARR $5M</li><li>亚洲市场覆盖</li></ul></div></div><a class="contact-email" href="mailto:bd@tzquant.com">bd@tzquant.com</a><p class="contact-location">杭州</p><div class="footer"><span>TzQuant IDE</span><span>14/14</span></div></section></body></html>

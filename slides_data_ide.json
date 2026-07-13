@@ -1,0 +1,438 @@
+[
+  {
+    "id": "cover",
+    "theme": "dark",
+    "layout": "center",
+    "title": "为量化私募打造一体化基础设施",
+    "subtitle": "从研究 → 回测 → 实盘，将策略上线周期从3周缩短到3天，降低30%+实盘偏差",
+    "eyebrow": "TzQuant IDE"
+  },
+  {
+    "id": "problem",
+    "theme": "dark",
+    "layout": "quote",
+    "quote": "“我们见过太多优秀的策略团队，因为回测环境与实盘偏差超过30%，上线首日就触发风控——这不是能力的差距，是基础设施的缺失。”",
+    "cite": "—— TzQuant 创始人"
+  },
+  {
+    "id": "why-ide",
+    "theme": "light",
+    "layout": "split-metrics",
+    "eyebrow": "为什么需要量化 IDE",
+    "title": "策略开发工具链正在割裂",
+    "body": "研究员要在 Jupyter、数据库、回测框架、交易终端之间反复切换，数据清洗占去 60% 时间。\n真正需要的不是更多工具，而是一个集数据、研究、回测、风控于一体的量化 IDE。",
+    "metrics": [
+      {
+        "value": "60%",
+        "label": "时间浪费在数据清洗"
+      },
+      {
+        "value": "4+",
+        "label": "工具系统来回切换"
+      },
+      {
+        "value": "30%+",
+        "label": "回测/实盘偏差"
+      },
+      {
+        "value": "3周",
+        "label": "传统策略上线周期"
+      }
+    ]
+  },
+  {
+    "id": "ide-intro",
+    "theme": "dark",
+    "layout": "center-list",
+    "eyebrow": "产品介绍",
+    "title": "TzQuant IDE：\n为量化策略而生的生产环境",
+    "body": "一站式覆盖策略开发全生命周期，从数据探索、因子研究、AI 生成、回测验证到实盘部署，全部在一个环境中完成。",
+    "bullets": [
+      "Notebook / SDK 双模协作研究",
+      "AI Agent 辅助策略生成与因子挖掘",
+      "Tick 级真实市场回测",
+      "一键部署至低延迟实盘交易",
+      "事前/事中/事后全链路风控"
+    ]
+  },
+  {
+    "id": "ide-features",
+    "theme": "light",
+    "layout": "cards-4",
+    "eyebrow": "IDE 核心能力",
+    "title": "研究员无需离开编辑器",
+    "cards": [
+      {
+        "title": "统一数据工作台",
+        "body": "行情、财务、另类数据一键接入；SQL / Python / API 任意方式查询，数据版本可追溯。"
+      },
+      {
+        "title": "AI 策略助手",
+        "body": "自然语言生成策略框架、自动补全因子逻辑、解释回测结果，降低策略开发门槛。"
+      },
+      {
+        "title": "原生回测引擎",
+        "body": "Tick 级事件驱动、真实交易成本建模、多资产多策略并行，回测即生产。"
+      },
+      {
+        "title": "实盘一键发布",
+        "body": "从研究到实盘无需重写代码，内置智能路由、实时风控、多券商统一接入。"
+      }
+    ]
+  },
+  {
+    "id": "ide-vs-others",
+    "theme": "dark",
+    "layout": "table",
+    "eyebrow": "竞品对比",
+    "title": "TzQuant IDE 专注机构级闭环",
+    "body": "不追求功能堆砌，而是把“研究—回测—实盘”闭环做深。",
+    "table": {
+      "headers": [
+        "平台",
+        "AI Agent",
+        "开放研究",
+        "社区协作",
+        "策略执行"
+      ],
+      "rows": [
+        [
+          "WorldQuant BRAIN",
+          "△",
+          "△",
+          "✓",
+          "✓"
+        ],
+        [
+          "QuantConnect",
+          "✗",
+          "✗",
+          "✓",
+          "✓"
+        ],
+        [
+          "JoinQuant",
+          "✗",
+          "✗",
+          "✓",
+          "✓"
+        ],
+        [
+          "RiceQuant",
+          "✗",
+          "✗",
+          "✓",
+          "✓"
+        ],
+        [
+          "Hugging Face",
+          "✓",
+          "✓",
+          "✓",
+          "✗"
+        ],
+        [
+          "TzQuant",
+          "✓✓",
+          "✓✓",
+          "✓✓",
+          "✓"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "why-now",
+    "theme": "dark",
+    "layout": "cards-4",
+    "eyebrow": "Why now",
+    "title": "量化 IDE 进入爆发窗口",
+    "cards": [
+      {
+        "title": "AI 正在重构策略研究流程",
+        "body": "大模型与自动化工具正在显著降低策略开发门槛，提高研究效率，机构可以更快地生成、测试和优化策略。"
+      },
+      {
+        "title": "多资产交易需求快速增长",
+        "body": "机构正在从单一股票策略扩展至股票、期货、期权、加密资产和跨市场套利，多资产环境使系统复杂度显著提升。"
+      },
+      {
+        "title": "机构需求正在升级",
+        "body": "机构已经从单一工具需求，转向统一、稳定、可扩展的量化生产环境，需要覆盖研究、回测、执行和风控的完整工作流。"
+      },
+      {
+        "title": "基础设施生态已经成熟",
+        "body": "云计算、实时数据接口、交易API以及计算资源成本下降，使机构级量化平台具备成熟落地条件。"
+      }
+    ]
+  },
+  {
+    "id": "traction",
+    "theme": "light",
+    "layout": "metrics-growth",
+    "eyebrow": "验证",
+    "title": "TzQuant IDE 已被机构验证",
+    "summary": "已有 20+ 家机构客户，累计运行 100+ 个策略模型，其中 10 个已进入实盘交易。",
+    "metrics1": [
+      {
+        "value": "90%",
+        "label": "策略上线周期缩短"
+      },
+      {
+        "value": "~$50M",
+        "label": "日均交易额"
+      },
+      {
+        "value": "95%+",
+        "label": "客户月留存率"
+      },
+      {
+        "value": "2.4×",
+        "label": "平均机构扩容率"
+      }
+    ],
+    "metrics2": [
+      {
+        "value": "300%",
+        "label": "客户数增长"
+      },
+      {
+        "value": "450%",
+        "label": "实盘策略增长"
+      },
+      {
+        "value": "600%",
+        "label": "日交易额增长"
+      }
+    ],
+    "quote": "“以前一个策略从回测到实盘需要 3 周，现在 3 天。TzQuant 让我们敢做更高频的策略了。”"
+  },
+  {
+    "id": "modules",
+    "theme": "dark",
+    "layout": "product-grid",
+    "eyebrow": "工作流",
+    "title": "研究 → 回测 → 实盘，一气呵成",
+    "products": [
+      {
+        "title": "量化研究",
+        "lead": "统一研究环境，加速 Alpha 发现与策略构建。",
+        "points": [
+          "AI 辅助策略生成",
+          "因子分析与信号挖掘",
+          "Notebook / SDK 协作环境"
+        ],
+        "outcome": "从想法到可验证策略，仅需数小时",
+        "img": "assets/research.jpg"
+      },
+      {
+        "title": "策略回测",
+        "lead": "真实市场建模，降低回测与实盘偏差。",
+        "points": [
+          "Tick 级事件驱动回测",
+          "真实交易成本模拟",
+          "多资产、多策略测试"
+        ],
+        "outcome": "降低回测与实盘偏离",
+        "img": "assets/backtest.jpg"
+      },
+      {
+        "title": "实盘执行",
+        "lead": "低延迟执行与实时风控的一体化交易环境。",
+        "points": [
+          "智能订单路由",
+          "实时风控监控",
+          "多券商统一接入"
+        ],
+        "outcome": "机构级实盘环境",
+        "img": "assets/live.jpg"
+      }
+    ]
+  },
+  {
+    "id": "moat",
+    "theme": "light",
+    "layout": "cards-4-quote",
+    "eyebrow": "护城河",
+    "title": "IDE 背后的原生架构",
+    "cards": [
+      {
+        "title": "全链路闭环",
+        "body": "研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。"
+      },
+      {
+        "title": "低延迟执行",
+        "body": "自研交易核心，订单处理延迟低于毫秒级，支持高频与算法交易场景。"
+      },
+      {
+        "title": "真实回测",
+        "body": "Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。"
+      },
+      {
+        "title": "开放生态",
+        "body": "标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。"
+      }
+    ],
+    "quote": "“这四件事，单做任何一件都不算难。但融于一套原生架构，意味着研究员不再做数据搬运工，策略从回测到实盘无需重写第二遍——我们为此重构了18个月。这不是功能堆砌，是量化基础设施该有的样子。”"
+  },
+  {
+    "id": "roadmap",
+    "theme": "dark",
+    "layout": "roadmap",
+    "eyebrow": "Roadmap",
+    "title": "TzQuant IDE 成长路径",
+    "cards": [
+      {
+        "status": "已完成",
+        "title": "产品验证",
+        "body": "核心平台上线，获得 50+ 机构客户，验证产品与商业模式。"
+      },
+      {
+        "status": "2026",
+        "title": "规模扩张",
+        "body": "拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。"
+      },
+      {
+        "status": "2027",
+        "title": "生态构建",
+        "body": "开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。"
+      },
+      {
+        "status": "2028",
+        "title": "全球化",
+        "body": "拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。"
+      }
+    ]
+  },
+  {
+    "id": "business",
+    "theme": "light",
+    "layout": "two-col",
+    "eyebrow": "商业模式 & 市场",
+    "title": "三层收入 + 巨大市场空间",
+    "left_title": "商业模式",
+    "left": [
+      {
+        "tag": "p",
+        "text": "SaaS 订阅覆盖基础，交易分成与客户共成长，定制开发服务头部——三层收入结构，层层递进。"
+      },
+      {
+        "tag": "h3",
+        "text": "SaaS 订阅"
+      },
+      {
+        "tag": "p",
+        "text": "按模块与数据量分级订阅，覆盖研究、回测与基础交易需求。"
+      },
+      {
+        "tag": "h3",
+        "text": "交易分成"
+      },
+      {
+        "tag": "p",
+        "text": "基于实盘交易规模收取技术服务费，与客户增长深度绑定。"
+      },
+      {
+        "tag": "h3",
+        "text": "定制开发"
+      },
+      {
+        "tag": "p",
+        "text": "为大型机构提供私有化部署、策略定制与系统对接服务。"
+      }
+    ],
+    "right_title": "市场",
+    "right": [
+      {
+        "tag": "p",
+        "text": "中国量化交易技术服务市场总规模"
+      },
+      {
+        "tag": "p",
+        "text": "专业服务型量化平台可服务市场"
+      },
+      {
+        "tag": "p",
+        "text": "未来 3 年目标市场份额"
+      }
+    ]
+  },
+  {
+    "id": "team",
+    "theme": "dark",
+    "layout": "team",
+    "eyebrow": "团队",
+    "title": "由量化、科技与金融资深人士组成",
+    "members": [
+      {
+        "name": "Cynthia",
+        "role": "CEO",
+        "tagline": "连续创业者，推动 TzQuant 从实验室走向机构客户。",
+        "bullets": [
+          "2018 年与 Leo 共同发起天择量化前身项目",
+          "50+ 家机构客户的早期商业化验证",
+          "100 人规模量化团队的组织与交付机制"
+        ],
+        "img": "assets/cynthia.png"
+      },
+      {
+        "name": "Leo",
+        "role": "CTO",
+        "tagline": "10+ 年系统架构经验，主导 AI 量化平台与交易核心落地。",
+        "bullets": [
+          "2011 年起从区块链底层到金融系统全栈实践",
+          "$1B+ AUM 规模的 AI 量化平台搭建",
+          "Tick 级 回测引擎与低延迟交易核心落地"
+        ],
+        "img": "assets/leo.png"
+      },
+      {
+        "name": "Barry",
+        "role": "CFO",
+        "tagline": "前 500 强 M&A 总监，主导融资与生态合作。",
+        "bullets": [
+          "5+ 年世界 500 强投资并购经验",
+          "多轮 融资与股权架构设计",
+          "大湾区 机构客户、券商与数据源生态对接"
+        ],
+        "img": "assets/barry.jpg"
+      }
+    ]
+  },
+  {
+    "id": "funding",
+    "theme": "light",
+    "layout": "funding",
+    "eyebrow": "融资",
+    "title": "Seeking $5M Seed",
+    "subtitle": "如果您对 TzQuant IDE 感兴趣，欢迎与我们联系。",
+    "blocks": [
+      {
+        "type": "list",
+        "title": "用途",
+        "items": [
+          "40% 核心研发",
+          "30% 数据采购",
+          "20% BD 增长",
+          "10% 合规运营"
+        ]
+      },
+      {
+        "type": "value",
+        "title": "现金流周期",
+        "value": "18–24 个月"
+      },
+      {
+        "type": "list",
+        "title": "里程碑",
+        "items": [
+          "200 家机构客户",
+          "ARR $5M",
+          "亚洲市场覆盖"
+        ]
+      }
+    ],
+    "email": "bd@tzquant.com",
+    "location": "杭州"
+  }
+]
