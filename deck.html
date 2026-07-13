@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="TzQuant Investor Deck" name="description"/>
+<title>TzQuant · Investor Deck</title>
+<link href="assets/logo.svg" rel="icon" type="image/svg+xml"/>
+
+<script>
+        // Prevent Chinese flash when English is saved
+        (function() {
+            const saved = localStorage.getItem('tzquant-lang');
+            if (saved === 'en') {
+                document.documentElement.lang = 'en';
+                document.documentElement.classList.add('lang-en');
+            }
+        })();
+    </script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1d1d1f; background: #fff; }
+body { margin: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.slide { width: 297mm; height: 210mm; padding: 16mm 18mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+.slide:last-child { page-break-after: auto; }
+.slide-dark { background: #101018; color: #f5f5f7; }
+.slide-light { background: #f5f5f7; color: #1d1d1f; }
+
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0071e3; margin-bottom: 10px; display: block; }
+.slide-title { font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+.slide-subtitle { font-size: 18px; color: #aeaeb3; margin-bottom: 18px; }
+.slide-body { font-size: 16px; line-height: 1.6; color: #6e6e73; max-width: 90%; }
+
+/* Fix hero */
+.hero { justify-content: center; text-align: center; }
+.hero .hero-content { max-width: 80%; margin: 0 auto; }
+.hero h1 { font-size: 44px !important; margin-bottom: 20px; }
+.hero .hero-subhead { font-size: 20px !important; color: #aeaeb3; }
+.hero .hero-media { display: none !important; }
+
+/* Quote */
+.quote-section { justify-content: center; text-align: center; }
+.quote-section blockquote { font-size: 26px; font-style: italic; line-height: 1.5; max-width: 85%; margin: 0 auto 30px; }
+.quote-section cite { font-size: 16px; color: #aeaeb3; }
+
+/* Metrics */
+.metrics-row, .traction-metrics, .growth-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 20px; }
+.metric, .traction-metric, .growth-metric { background: #fff; border-radius: 12px; padding: 18px 12px; text-align: center; border: 1px solid #e8e8ed; }
+.slide-dark .metric, .slide-dark .traction-metric, .slide-dark .growth-metric { background: #1e1e2a; border-color: #323240; }
+.metric-value, .metric-number, .growth-value { font-size: 30px; font-weight: 700; color: #0071e3; display: block; }
+.metric-label, .growth-label { font-size: 13px; color: #1d1d1f; margin-top: 6px; display: block; }
+.slide-dark .metric-label, .slide-dark .growth-label { color: #f5f5f7; }
+.metric-detail { font-size: 11px; color: #aeaeb3; }
+
+/* Cards */
+.solution-grid, .why-now-grid, .advantage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px; }
+.solution-card, .why-now-card, .advantage-card { background: #fff; border-radius: 12px; padding: 18px; border: 1px solid #e8e8ed; }
+.slide-dark .solution-card, .slide-dark .why-now-card, .slide-dark .advantage-card { background: #1e1e2a; border-color: #323240; }
+.solution-card.wide { grid-column: span 2; text-align: center; }
+.solution-card span, .why-now-card h3, .advantage-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; display: block; }
+.solution-card p, .why-now-card p, .advantage-card p { font-size: 13px; color: #6e6e73; line-height: 1.5; }
+
+/* Product */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.product-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e8e8ed; }
+.slide-dark .product-card { background: #1e1e2a; border-color: #323240; }
+.product-media { height: 110px; overflow: hidden; }
+.product-media img { width: 100%; height: 100%; object-fit: cover; }
+.product-info { padding: 14px; }
+.product-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.product-lead { font-size: 12px; color: #6e6e73; margin-bottom: 8px; }
+.product-points li { font-size: 11px; margin-bottom: 3px; }
+
+/* Roadmap */
+.roadmap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px; }
+.roadmap-card { background: #fff; border-radius: 12px; padding: 18px; border: 1px solid #e8e8ed; }
+.slide-dark .roadmap-card { background: #1e1e2a; border-color: #323240; }
+.roadmap-status { font-size: 12px; color: #0071e3; font-weight: 700; margin-bottom: 8px; display: block; }
+.roadmap-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.roadmap-card p { font-size: 12px; color: #6e6e73; line-height: 1.5; }
+
+/* Competitors */
+.competitor-table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 13px; background: #fff; border-radius: 12px; overflow: hidden; }
+.slide-dark .competitor-table { background: #1e1e2a; }
+.competitor-table th, .competitor-table td { padding: 10px 8px; text-align: center; border-bottom: 1px solid #e8e8ed; }
+.competitor-table th { background: #101018; color: #f5f5f7; }
+.competitor-table td:first-child { text-align: left; font-weight: 600; padding-left: 14px; }
+.competitor-table tr.highlight { background: rgba(0,113,227,0.06); }
+.competitor-table tr.highlight td { color: #0071e3; font-weight: 700; }
+
+/* Business + Market */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 18px; }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+.team-card { background: #fff; border-radius: 12px; padding: 16px; display: flex; gap: 14px; border: 1px solid #e8e8ed; }
+.slide-dark .team-card { background: #1e1e2a; border-color: #323240; }
+.member-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.team-card h3 { font-size: 18px; margin-bottom: 2px; }
+.member-role { font-size: 12px; color: #0071e3; font-weight: 600; }
+.member-tagline { font-size: 12px; color: #6e6e73; margin-top: 6px; line-height: 1.4; }
+
+/* Funding */
+.funding-plan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.fund-block { background: #fff; border-radius: 12px; padding: 18px; border: 1px solid #e8e8ed; }
+.slide-dark .fund-block { background: #1e1e2a; border-color: #323240; }
+.fund-block h3 { font-size: 13px; color: #0071e3; margin-bottom: 10px; }
+.fund-value { font-size: 24px; font-weight: 700; }
+.fund-allocations li, .fund-milestones li { font-size: 13px; margin-bottom: 6px; }
+.contact-email { font-size: 32px; color: #0071e3; font-weight: 600; text-align: center; display: block; margin-top: 16px; }
+.contact-location { text-align: center; color: #aeaeb3; margin-top: 6px; }
+
+/* Hide decorative SVGs that overflow */
+.why-now-flow, .workflow-flow, .growth-curve, .hero-media, .why-now-icon, .competitor-legend, .competitor-summary { display: none !important; }
+
+/* Footer */
+.footer { position: absolute; bottom: 14mm; left: 18mm; right: 18mm; font-size: 12px; color: #aeaeb3; display: flex; justify-content: space-between; }
+</style></head>
+<body>
+
+<!-- Hero -->
+<section class="hero slide slide-dark" id="hero">
+<div class="hero-content">
+<h1 data-en="An integrated infrastructure for quant private funds" data-zh="为量化私募打造一体化基础设施">为量化私募打造一体化基础设施</h1>
+<p class="hero-subhead" data-en="Research → backtest → live trading. Cut deployment cycle from 3 weeks to 3 days and reduce live deviation by 30%+." data-zh="从研究 → 回测 → 实盘，将策略上线周期从3周缩短到3天，降低30%+实盘偏差">从研究 → 回测 → 实盘，将策略上线周期从3周缩短到3天，降低30%+实盘偏差</p>
+
+</div>
+<div class="hero-media" id="heroMedia">
+
+<div aria-hidden="true" class="hero-poster" id="heroPoster">
+<img alt="Hero background" src="assets/hero.jpg"/>
+
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Founder Quote -->
+<section class="quote-section slide slide-dark" id="quote">
+<div class="quote-inner">
+<blockquote data-en="“We've seen too many talented strategy teams trigger risk controls on day one because their backtest environment deviated from live trading by over 30%—this is not a gap in capability, but a gap in infrastructure.”" data-zh="“我们见过太多优秀的策略团队，因为回测环境与实盘偏差超过30%，上线首日就触发风控——这不是能力的差距，是基础设施的缺失。”">
+                “我们见过太多优秀的策略团队，因为回测环境与实盘偏差超过30%，上线首日就触发风控——这不是能力的差距，是基础设施的缺失。”
+            </blockquote>
+<cite data-en="— Founder, TzQuant" data-zh="—— TzQuant 创始人">—— TzQuant 创始人</cite>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Opportunity -->
+<section class="section opportunity slide slide-light" id="opportunity">
+<div class="section-inner">
+<div class="section-head">
+<span class="eyebrow" data-en="Opportunity" data-zh="机会">机会</span>
+<h2 data-en-html="Quantitative Trading Is Becoming&lt;br&gt;Core to Institutional Investing" data-zh-html="量化交易正成为&lt;br&gt;机构投资的核心能力">量化交易正成为<br/>机构投资的核心能力</h2>
+</div>
+<div class="opportunity-body">
+<p data-en="In leading markets alone, quantitative private fund AUM has reached ~$1.8T, with a 5-year CAGR exceeding 25%. Quantitative investing is moving from a niche strategy to an institutional mainstream allocation." data-zh="仅头部市场的量化私募管理规模就已突破 ~$1.8T，过去五年复合增长率超过 25%。量化投资正从边缘策略走向机构主流配置。">仅头部市场的量化私募管理规模就已突破 ~$1.8T，过去五年复合增长率超过 25%。量化投资正从边缘策略走向机构主流配置。</p>
+<p class="expand" data-en="Yet taking a strategy from idea to production typically requires teams to switch back and forth across four separate systems for data, research, backtesting, and execution. Data cleaning alone consumes 60% of their time, and this toolchain fragmentation directly creates divergence between backtest and live results." data-zh="然而，一个策略从想法到上线，通常要在数据、研究、回测、执行四套系统间反复切换；数据清洗就占去团队 60% 的时间，工具链的割裂直接造成回测与实盘的偏差。">然而，一个策略从想法到上线，通常要在数据、研究、回测、执行四套系统间反复切换；数据清洗就占去团队 60% 的时间，工具链的割裂直接造成回测与实盘的偏差。</p>
+<p class="secondary" data-en="What professional investors really need is not more tools, but an integrated quantitative infrastructure that unifies data, research, execution, and risk control." data-zh="专业投资者真正需要的，不是更多工具，而是一个将数据、研究、执行与风控融为一体的一站式量化基础设施。">专业投资者真正需要的，不是更多工具，而是一个将数据、研究、执行与风控融为一体的一站式量化基础设施。</p>
+</div>
+<div class="metrics-row">
+<div class="metric">
+<span class="metric-value">~$1.8T</span>
+<span class="metric-label" data-en="China Quant Private Fund AUM" data-zh="中国量化私募规模">中国量化私募规模</span>
+</div>
+<div class="metric">
+<span class="metric-value">~$1.5T</span>
+<span class="metric-label" data-en="Global Quant Hedge Fund AUM" data-zh="全球量化对冲基金 AUM">全球量化对冲基金 AUM</span>
+</div>
+<div class="metric">
+<span class="metric-value">~$20T</span>
+<span class="metric-label" data-en="Global Algorithmic Trading Volume" data-zh="全球算法交易年交易量">全球算法交易年交易量</span>
+</div>
+<div class="metric">
+<span class="metric-value">25%+</span>
+<span class="metric-label" data-en="China 5-Year CAGR" data-zh="中国五年复合增长率">中国五年复合增长率</span>
+</div>
+<div class="metric">
+<span class="metric-value">~70%</span>
+<span class="metric-label" data-en="US Institutional Quant Trading Share" data-zh="美股机构量化交易占比">美股机构量化交易占比</span>
+</div>
+<div class="metric">
+<span class="metric-value">10,000+</span>
+<span class="metric-label" data-en="Global Quantitative Funds" data-zh="全球量化基金数量">全球量化基金数量</span>
+</div>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Solution -->
+<section class="section solution slide slide-dark" id="solution">
+<div class="section-inner">
+<div class="section-head">
+<h2 data-en-html="AI-native Quantitative Research&lt;br&gt;Infrastructure Validated Through Proprietary Trading" data-zh-html="基于自营量化验证的&lt;br&gt;AI 原生量化研究基础设施">基于自营量化验证的<br/>AI 原生量化研究基础设施</h2>
+<p class="section-subhead" data-en="Every stage—from data to execution—is engineered with precision." data-zh="从数据到执行，每个环节都经过精心设计。">从数据到执行，每个环节都经过精心设计。</p>
+</div>
+<div class="solution-grid">
+<div class="solution-card">
+<span data-en="Data Layer" data-zh="数据层">数据层</span>
+<p data-en="High-quality market, fundamental, and alternative data" data-zh="高质量行情、财务与另类数据">高质量行情、财务与另类数据</p>
+</div>
+<div class="solution-card">
+<span data-en="Research Layer" data-zh="研究层">研究层</span>
+<p data-en="Multi-factor modeling and AI-driven strategy research" data-zh="多因子模型与 AI 策略研究">多因子模型与 AI 策略研究</p>
+</div>
+<div class="solution-card">
+<span data-en="Backtest Layer" data-zh="回测层">回测层</span>
+<p data-en="Tick-level high-fidelity backtest engine" data-zh="Tick 级高精度回测引擎">Tick 级高精度回测引擎</p>
+</div>
+<div class="solution-card">
+<span data-en="Execution Layer" data-zh="执行层">执行层</span>
+<p data-en="Low-latency live trading connectivity" data-zh="低延迟实盘交易接入">低延迟实盘交易接入</p>
+</div>
+<div class="solution-card wide">
+<span data-en="Risk Control Layer" data-zh="风控层">风控层</span>
+<p data-en="Full-chain risk control across pre-trade, in-trade, and post-trade stages, safeguarding every transaction." data-zh="事前事中事后全链路风控体系，守护每一笔交易的安全。">事前事中事后全链路风控体系，守护每一笔交易的安全。</p>
+</div>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Competitors -->
+<section class="section competitors slide slide-light" id="competitors">
+<div class="section-inner">
+<div class="section-head">
+<h2 data-en="Competitive Analysis" data-zh="竞品分析">竞品分析</h2>
+<p class="section-subhead" data-en="Built for institutional investors, TzQuant differentiates through data, execution, and risk control." data-zh="聚焦专业投资者需求，TzQuant 在数据、执行与风控上形成差异化定位。">聚焦专业投资者需求，TzQuant 在数据、执行与风控上形成差异化定位。</p>
+</div>
+<p class="strategic-note" data-en="We don't believe more features make a better product. The real pain point for quant institutions is the closed loop—where strategies are researched is where they should be backtested and executed. So instead of piling up features, we chose the harder path: building our own low-latency trading core and tick-level backtest engine." data-zh="我们不认为功能越多越好。量化机构真正的痛点是“闭环”——策略在哪里研究，就在哪里回测，就在哪里执行。所以我们没有选择功能堆砌，而是选择了最难的路：自研低延迟交易核心和Tick级回测引擎。">我们不认为功能越多越好。量化机构真正的痛点是“闭环”——策略在哪里研究，就在哪里回测，就在哪里执行。所以我们没有选择功能堆砌，而是选择了最难的路：自研低延迟交易核心和Tick级回测引擎。</p>
+<div class="competitor-table-wrap">
+<table class="competitor-table">
+<thead>
+<tr>
+<th data-en="Platform" data-zh="平台">平台</th>
+<th data-en="AI Agent" data-zh="AI Agent">AI Agent</th>
+<th data-en="Open Research" data-zh="开放研究">开放研究</th>
+<th data-en="Community" data-zh="社区协作">社区协作</th>
+<th data-en="Execution" data-zh="策略执行">策略执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WorldQuant BRAIN</td>
+<td class="partial">△</td>
+<td class="partial">△</td>
+<td class="yes">✓</td>
+<td class="yes">✓</td>
+</tr>
+<tr>
+<td>QuantConnect</td>
+<td class="no">✗</td>
+<td class="no">✗</td>
+<td class="yes">✓</td>
+<td class="yes">✓</td>
+</tr>
+<tr>
+<td>Numerai</td>
+<td class="partial">△</td>
+<td class="yes">✓</td>
+<td class="yes">✓</td>
+<td class="no">✗</td>
+</tr>
+<tr>
+<td>JoinQuant</td>
+<td class="no">✗</td>
+<td class="no">✗</td>
+<td class="yes">✓</td>
+<td class="yes">✓</td>
+</tr>
+<tr>
+<td>RiceQuant</td>
+<td class="no">✗</td>
+<td class="no">✗</td>
+<td class="yes">✓</td>
+<td class="yes">✓</td>
+</tr>
+<tr>
+<td>Hugging Face</td>
+<td class="yes">✓</td>
+<td class="yes">✓</td>
+<td class="yes">✓</td>
+<td class="no">✗</td>
+</tr>
+<tr class="highlight">
+<td>TZQuant</td>
+<td class="yes strong">✓✓</td>
+<td class="yes strong">✓✓</td>
+<td class="yes strong">✓✓</td>
+<td class="yes">✓</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="competitor-legend">
+<span><strong class="yes strong">✓✓</strong> <span data-en="Core capability" data-zh="核心能力">核心能力</span></span>
+<span><strong class="yes">✓</strong> <span data-en="Supported" data-zh="支持">支持</span></span>
+<span><strong class="partial">△</strong> <span data-en="Partially supported" data-zh="部分支持">部分支持</span></span>
+<span><strong class="no">✗</strong> <span data-en="Not supported" data-zh="不支持">不支持</span></span>
+</div>
+<div class="competitor-summary">
+<p data-en="Unlike the above platforms, TzQuant is built from the ground up for institutional clients—deeply integrating research, backtesting, live execution, and full-chain risk control, while delivering a scalable quantitative infrastructure through a low-latency trading core and open APIs." data-zh="相比上述平台，TzQuant 从机构客户需求出发，将研究、回测、实盘执行与全链路风控深度融合，并以低延迟交易核心和开放 API 构建可扩展的量化基础设施。">相比上述平台，TzQuant 从机构客户需求出发，将研究、回测、实盘执行与全链路风控深度融合，并以低延迟交易核心和开放 API 构建可扩展的量化基础设施。</p>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Why Now -->
+<section class="section why-now slide slide-dark" id="why-now">
+<div class="section-inner">
+<div class="section-head">
+<h2>Why now?</h2>
+<p class="section-subhead" data-en="Multiple structural shifts are driving quantitative infrastructure into a new phase" data-zh="多个结构性变化正在推动量化基础设施进入新阶段">多个结构性变化正在推动量化基础设施进入新阶段</p>
+</div>
+<div class="why-now-layout">
+<div class="why-now-grid">
+<div class="why-now-card">
+<div aria-hidden="true" class="why-now-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"></path>
+<path d="M9 22h6"></path>
+<path d="M12 13v3"></path>
+</svg>
+</div>
+<h3 data-en="AI Is Reshaping Strategy Research" data-zh="AI 正在重构策略研究流程">AI 正在重构策略研究流程</h3>
+<p data-en="LLMs and automation tools are lowering the barrier to strategy development and accelerating research, enabling institutions to generate, test, and optimize strategies faster." data-zh="大模型与自动化工具正在显著降低策略开发门槛，提高研究效率，机构可以更快地生成、测试和优化策略。">大模型与自动化工具正在显著降低策略开发门槛，提高研究效率，机构可以更快地生成、测试和优化策略。</p>
+</div>
+<div class="why-now-card">
+<div aria-hidden="true" class="why-now-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M3 3v18h18"></path>
+<path d="M18 17V9"></path>
+<path d="M13 17V5"></path>
+<path d="M8 17v-3"></path>
+</svg>
+</div>
+<h3 data-en="Multi-Asset Trading Demand Is Growing Fast" data-zh="多资产交易需求快速增长">多资产交易需求快速增长</h3>
+<p data-en="Institutions are expanding from single-asset equity strategies into equities, futures, options, crypto, and cross-market arbitrage—significantly raising system complexity." data-zh="机构正在从单一股票策略扩展至股票、期货、期权、加密资产和跨市场套利，多资产环境使系统复杂度显著提升。">机构正在从单一股票策略扩展至股票、期货、期权、加密资产和跨市场套利，多资产环境使系统复杂度显著提升。</p>
+</div>
+<div class="why-now-card">
+<div aria-hidden="true" class="why-now-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M3 21h18"></path>
+<path d="M5 21V7l8-4 8 4v14"></path>
+<path d="M13 11h4"></path>
+<path d="M13 15h4"></path>
+<path d="M13 7h4"></path>
+<path d="M9 11H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"></path>
+</svg>
+</div>
+<h3 data-en="Institutional Demands Are Upgrading" data-zh="机构需求正在升级">机构需求正在升级</h3>
+<p data-en="Institutions are moving from single-point tools toward unified, stable, and scalable quant production environments that cover the full workflow of research, backtesting, execution, and risk control." data-zh="机构已经从单一工具需求，转向统一、稳定、可扩展的量化生产环境，需要覆盖研究、回测、执行和风控的完整工作流。">机构已经从单一工具需求，转向统一、稳定、可扩展的量化生产环境，需要覆盖研究、回测、执行和风控的完整工作流。</p>
+</div>
+<div class="why-now-card">
+<div aria-hidden="true" class="why-now-icon">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M17.5 19c0-1.7-1.3-3-3-3h-5c-1.7 0-3 1.3-3 3"></path>
+<path d="M17.5 19H21v-4"></path>
+<path d="M6.5 19H3v-4"></path>
+<path d="M6.5 5c0 1.7 1.3 3 3 3h5c1.7 0 3-1.3 3-3"></path>
+<path d="M6.5 5H3v4"></path>
+<path d="M17.5 5H21v4"></path>
+</svg>
+</div>
+<h3 data-en="The Infrastructure Ecosystem Has Matured" data-zh="基础设施生态已经成熟">基础设施生态已经成熟</h3>
+<p data-en="Cloud computing, real-time data feeds, trading APIs, and declining compute costs have made institutional-grade quant platforms viable at scale." data-zh="云计算、实时数据接口、交易API以及计算资源成本下降，使机构级量化平台具备成熟落地条件。">云计算、实时数据接口、交易API以及计算资源成本下降，使机构级量化平台具备成熟落地条件。</p>
+</div>
+</div>
+<div class="why-now-flow">
+<div class="flow-item" data-en="AI capabilities mature" data-zh="AI 能力成熟">AI 能力成熟</div>
+<span aria-hidden="true" class="flow-arrow">↓</span>
+<div class="flow-item" data-en="Strategy volume grows" data-zh="策略数量增长">策略数量增长</div>
+<span aria-hidden="true" class="flow-arrow">↓</span>
+<div class="flow-item" data-en="System complexity rises" data-zh="系统复杂度上升">系统复杂度上升</div>
+<span aria-hidden="true" class="flow-arrow">↓</span>
+<div class="flow-item" data-en="Institutions need unified infrastructure" data-zh="机构需要统一基础设施">机构需要统一基础设施</div>
+<span aria-hidden="true" class="flow-arrow">↓</span>
+<div class="flow-item highlight" data-en="The quant operating system era begins" data-zh="量化操作系统时代开始">量化操作系统时代开始</div>
+</div>
+</div>
+<div class="why-now-closing">
+<p class="closing-lead" data-en="The market is moving from the 'quant tools era' to the 'quant operating system era'" data-zh="市场正在从“量化工具时代”进入“量化操作系统时代”">市场正在从“量化工具时代”进入“量化操作系统时代”</p>
+<p class="closing-sub" data-en="TzQuant aims to become the next-generation infrastructure for quantitative institutions." data-zh="TzQuant 希望成为下一代量化机构基础设施。">TzQuant 希望成为下一代量化机构基础设施。</p>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Traction -->
+<section class="section traction slide slide-light" id="traction">
+<div class="section-inner">
+<div class="section-head">
+<h2 data-en="Proven Market Traction" data-zh="已验证的市场吸引力">已验证的市场吸引力</h2>
+</div>
+<div class="traction-metrics">
+<div class="traction-metric">
+<span class="metric-number">90%</span>
+<span class="metric-label" data-en="Deployment cycle reduced" data-zh="策略上线周期缩短">策略上线周期缩短</span>
+<span class="metric-detail" data-en="From 3 weeks to 3 days" data-zh="从 3 周到 3 天">从 3 周到 3 天</span>
+</div>
+<div class="traction-metric">
+<span class="metric-number">~$50M</span>
+<span class="metric-label" data-en="Daily trading volume" data-zh="日均交易额">日均交易额</span>
+</div>
+<div class="traction-metric">
+<span class="metric-number">95%+</span>
+<span class="metric-label" data-en="Monthly retention" data-zh="客户月留存率">客户月留存率</span>
+</div>
+<div class="traction-metric">
+<span class="metric-number">2.4×</span>
+<span class="metric-label" data-en="Avg. institutional expansion" data-zh="平均机构扩容率">平均机构扩容率</span>
+</div>
+</div>
+<p class="traction-summary" data-en="20+ institutional clients, 100+ strategy models running, with 10 already in live trading." data-zh="已有 20+ 家机构客户，累计运行 100+ 个策略模型，其中 10 个已进入实盘交易。">已有 20+ 家机构客户，累计运行 100+ 个策略模型，其中 10 个已进入实盘交易。</p>
+<div class="growth-sixmonths">
+<h3 data-en="Past 6 Months" data-zh="过去 6 个月">过去 6 个月</h3>
+<div class="growth-metrics">
+<div class="growth-metric">
+<span class="growth-value">300%</span>
+<span class="growth-label" data-en="Client growth" data-zh="客户数增长">客户数增长</span>
+</div>
+<div class="growth-metric">
+<span class="growth-value">450%</span>
+<span class="growth-label" data-en="Live strategy growth" data-zh="实盘策略增长">实盘策略增长</span>
+</div>
+<div class="growth-metric">
+<span class="growth-value">600%</span>
+<span class="growth-label" data-en="Daily trading volume growth" data-zh="日交易额增长">日交易额增长</span>
+</div>
+</div>
+<div aria-hidden="true" class="growth-curve">
+<svg preserveaspectratio="none" viewbox="0 0 400 120">
+<defs>
+<lineargradient id="curveFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="var(--accent)" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="var(--accent)" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,100 C80,100 100,80 160,70 S240,50 300,30 S360,10 400,5 L400,120 L0,120 Z" fill="url(#curveFill)"></path>
+<path d="M0,100 C80,100 100,80 160,70 S240,50 300,30 S360,10 400,5" fill="none" stroke="var(--accent)" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+<blockquote class="traction-quote" data-en="“It used to take three weeks to take a strategy from backtest to live trading; now it takes three days. TzQuant lets us pursue higher-frequency strategies with confidence.”" data-zh="“以前一个策略从回测到实盘需要 3 周，现在 3 天。TzQuant 让我们敢做更高频的策略了。”">“以前一个策略从回测到实盘需要 3 周，现在 3 天。TzQuant 让我们敢做更高频的策略了。”</blockquote>
+<cite class="traction-cite" data-en="— Partner, Leading Quantitative Hedge Fund" data-zh="—— 某头部量化私募合伙人">—— 某头部量化私募合伙人</cite>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Product -->
+<section class="section product slide slide-dark" id="product">
+<div class="section-inner">
+<div class="section-head">
+<span class="eyebrow" data-en="Product" data-zh="产品">产品</span>
+<h2 data-en="Unified Quant Workflow" data-zh="统一量化工作流">统一量化工作流</h2>
+<p class="section-subhead" data-en="From research and backtesting to live execution—one unified quant production environment" data-zh="从研究、回测到实盘执行，构建统一量化生产环境">从研究、回测到实盘执行，构建统一量化生产环境</p>
+</div>
+<div aria-hidden="true" class="workflow-flow">
+<span class="workflow-step" data-en="Research" data-zh="研究">研究</span>
+<span class="workflow-arrow">→</span>
+<span class="workflow-step" data-en="Backtest" data-zh="验证">验证</span>
+<span class="workflow-arrow">→</span>
+<span class="workflow-step" data-en="Live" data-zh="交易">交易</span>
+</div>
+<div class="product-grid workflow-grid">
+<div class="product-card workflow-card">
+<div class="product-media">
+<img alt="TzQuant Research" src="assets/research.jpg"/>
+</div>
+<div class="product-info">
+<div class="product-meta">
+<h3 data-en="TzQuant Research" data-zh="量化研究">量化研究</h3>
+</div>
+<p class="product-lead" data-en="A unified research environment that accelerates alpha discovery and strategy construction." data-zh="统一研究环境，加速 Alpha 发现与策略构建。">统一研究环境，加速 Alpha 发现与策略构建。</p>
+<ul class="product-points">
+<li data-en="AI-assisted strategy generation" data-zh="AI 辅助策略生成">AI 辅助策略生成</li>
+<li data-en="Factor analysis and signal mining" data-zh="因子分析与信号挖掘">因子分析与信号挖掘</li>
+<li data-en="Notebook and SDK collaboration environment" data-zh="Notebook / SDK 协作环境">Notebook / SDK 协作环境</li>
+</ul>
+<div class="product-outcome">
+<span class="outcome-label" data-en="Idea → Strategy within hours" data-zh="从想法到可验证策略，仅需数小时">从想法到可验证策略，仅需数小时</span>
+</div>
+</div>
+</div>
+<div class="product-card workflow-card">
+<div class="product-media">
+<img alt="TzQuant Backtest" src="assets/backtest.jpg"/>
+</div>
+<div class="product-info">
+<div class="product-meta">
+<h3 data-en="TzQuant Backtest" data-zh="策略回测">策略回测</h3>
+</div>
+<p class="product-lead" data-en="Realistic market modeling that reduces backtest-to-live drift." data-zh="真实市场建模，降低回测与实盘偏差。">真实市场建模，降低回测与实盘偏差。</p>
+<ul class="product-points">
+<li data-en="Tick-level event-driven backtesting" data-zh="Tick 级事件驱动回测">Tick 级事件驱动回测</li>
+<li data-en="Realistic transaction cost simulation" data-zh="真实交易成本模拟">真实交易成本模拟</li>
+<li data-en="Multi-asset, multi-strategy testing" data-zh="多资产、多策略测试">多资产、多策略测试</li>
+</ul>
+<div class="product-outcome">
+<span class="outcome-label" data-en="Reduce simulation-to-live drift" data-zh="降低回测与实盘偏离">降低回测与实盘偏离</span>
+</div>
+</div>
+</div>
+<div class="product-card workflow-card">
+<div class="product-media">
+<img alt="TzQuant Live" src="assets/live.jpg"/>
+</div>
+<div class="product-info">
+<div class="product-meta">
+<h3 data-en="TzQuant Live" data-zh="实盘执行">实盘执行</h3>
+</div>
+<p class="product-lead" data-en="An integrated trading environment for low-latency execution and real-time risk control." data-zh="低延迟执行与实时风控的一体化交易环境。">低延迟执行与实时风控的一体化交易环境。</p>
+<ul class="product-points">
+<li data-en="Intelligent order routing" data-zh="智能订单路由">智能订单路由</li>
+<li data-en="Real-time risk monitoring" data-zh="实时风控监控">实时风控监控</li>
+<li data-en="Unified multi-broker connectivity" data-zh="多券商统一接入">多券商统一接入</li>
+</ul>
+<div class="product-outcome">
+<span class="outcome-label" data-en="Production-ready infra" data-zh="机构级实盘环境">机构级实盘环境</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Advantage -->
+<section class="section advantage slide slide-light" id="advantage">
+<div class="section-inner">
+<div class="section-head">
+<h2 data-en="Building a Defensible Moat" data-zh="构建难以复制的护城河">构建难以复制的护城河</h2>
+<p class="moat-subtitle" data-en="Individual features can be copied, but a native architecture that integrates research, execution, and ecosystem requires rewriting the underlying logic from day one." data-zh="单点功能都可以被模仿，但将研究、执行与生态融为一体的原生架构，需要从第一天就重写底层逻辑。">单点功能都可以被模仿，但将研究、执行与生态融为一体的原生架构，需要从第一天就重写底层逻辑。</p>
+</div>
+<div class="advantage-grid">
+<div class="advantage-card">
+<h3 data-en="Full-Loop Integration" data-zh="全链路闭环">全链路闭环</h3>
+<p data-en="Integration of research, backtesting, live trading, and risk control—preventing fragmented data and strategy flows across multiple tools." data-zh="研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。">研究、回测、实盘、风控一体化，避免数据与策略在多个工具间割裂流转。</p>
+</div>
+<div class="advantage-card">
+<h3 data-en="Low-Latency Execution" data-zh="低延迟执行">低延迟执行</h3>
+<p data-en="Proprietary trading core with sub-millisecond order processing, supporting high-frequency and algorithmic trading scenarios." data-zh="自研交易核心，订单处理延迟低于毫秒级，支持高频与算法交易场景。">自研交易核心，订单处理延迟低于毫秒级，支持高频与算法交易场景。</p>
+</div>
+<div class="advantage-card">
+<h3 data-en="Realistic Backtesting" data-zh="真实回测">真实回测</h3>
+<p data-en="Tick-level data and realistic transaction cost modeling significantly reduce post-deployment return deviation." data-zh="Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。">Tick 级数据与真实交易成本建模，显著降低策略上线后的收益偏离。</p>
+</div>
+<div class="advantage-card">
+<h3 data-en="Open Ecosystem" data-zh="开放生态">开放生态</h3>
+<p data-en="Standardized APIs and plugin architecture enable clients and third-party developers to extend platform capabilities together." data-zh="标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。">标准化 API 与插件体系，让客户与第三方开发者共同扩展平台能力。</p>
+</div>
+</div>
+<div class="moat-quote-box">
+<p data-en="“Each of these four capabilities is achievable on its own. But fusing them into a native architecture means researchers stop being data couriers, and strategies no longer need to be rewritten from backtest to live trading—we spent 18 months rebuilding the system for this. This isn't feature stacking. It's what quantitative infrastructure should look like.”" data-zh="“这四件事，单做任何一件都不算难。但融于一套原生架构，意味着研究员不再做数据搬运工，策略从回测到实盘无需重写第二遍——我们为此重构了18个月。这不是功能堆砌，是量化基础设施该有的样子。”">“这四件事，单做任何一件都不算难。但融于一套原生架构，意味着研究员不再做数据搬运工，策略从回测到实盘无需重写第二遍——我们为此重构了18个月。这不是功能堆砌，是量化基础设施该有的样子。”</p>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Roadmap -->
+<section class="section roadmap slide slide-dark" id="roadmap">
+<div class="section-inner">
+<div class="section-head">
+<h2 data-en="Clear Growth Path" data-zh="清晰的成长路径">清晰的成长路径</h2>
+</div>
+<div class="roadmap-grid">
+<div class="roadmap-card">
+<span class="roadmap-status done" data-en="Completed" data-zh="已完成">已完成</span>
+<h3 data-en="Product Validation" data-zh="产品验证">产品验证</h3>
+<p data-en="Core platform launched with 50+ institutional clients, validating the product and business model." data-zh="核心平台上线，获得 50+ 机构客户，验证产品与商业模式。">核心平台上线，获得 50+ 机构客户，验证产品与商业模式。</p>
+</div>
+<div class="roadmap-card">
+<span class="roadmap-status">2026</span>
+<h3 data-en="Scale Expansion" data-zh="规模扩张">规模扩张</h3>
+<p data-en="Expand data sources and broker connectivity, cover more asset classes, and scale SaaS revenue." data-zh="拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。">拓展数据源与券商接入，覆盖更多资产类别，实现 SaaS 收入规模化。</p>
+</div>
+<div class="roadmap-card">
+<span class="roadmap-status">2027</span>
+<h3 data-en="Ecosystem Building" data-zh="生态构建">生态构建</h3>
+<p data-en="Open platform and strategy marketplace, onboarding third-party developers to build a quantitative strategy ecosystem." data-zh="开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。">开放平台与策略商城，引入第三方开发者，形成量化策略交易生态。</p>
+</div>
+<div class="roadmap-card">
+<span class="roadmap-status">2028</span>
+<h3 data-en="Globalization" data-zh="全球化">全球化</h3>
+<p data-en="Expand into Hong Kong, US, and derivatives markets, serving professional investors across Asia-Pacific." data-zh="拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。">拓展港股、美股与衍生品市场，服务亚太地区的专业投资者。</p>
+</div>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Business + Market -->
+<section class="section combined slide slide-light" id="business">
+<div class="section-inner">
+<div class="col">
+<div class="section-head">
+<span class="eyebrow" data-en="Business Model" data-zh="商业模式">商业模式</span>
+<h2 data-en-html="Diversified Revenue,&lt;br&gt;Sustainable Growth" data-zh-html="多元化收入，&lt;br&gt;可持续增长">多元化收入，<br/>可持续增长</h2>
+</div>
+<p class="design-logic" data-en="SaaS subscriptions cover the base, revenue sharing grows with clients, and custom development serves top-tier institutions—a three-tier revenue model that scales upward." data-zh="SaaS 订阅覆盖基础，交易分成与客户共成长，定制开发服务头部——三层收入结构，层层递进。">SaaS 订阅覆盖基础，交易分成与客户共成长，定制开发服务头部——三层收入结构，层层递进。</p>
+<div class="business-list">
+<div class="business-item">
+<h3 data-en="SaaS Subscriptions" data-zh="SaaS 订阅">SaaS 订阅</h3>
+<p data-en="Tiered subscriptions by module and data volume, covering research, backtesting, and basic trading needs." data-zh="按模块与数据量分级订阅，覆盖研究、回测与基础交易需求。">按模块与数据量分级订阅，覆盖研究、回测与基础交易需求。</p>
+</div>
+<div class="business-item">
+<h3 data-en="Trading Revenue Share" data-zh="交易分成">交易分成</h3>
+<p data-en="Technical service fees tied to live trading volume, closely aligned with client growth." data-zh="基于实盘交易规模收取技术服务费，与客户增长深度绑定。">基于实盘交易规模收取技术服务费，与客户增长深度绑定。</p>
+</div>
+<div class="business-item">
+<h3 data-en="Custom Development" data-zh="定制开发">定制开发</h3>
+<p data-en="On-premise deployment, strategy customization, and system integration services for large institutions." data-zh="为大型机构提供私有化部署、策略定制与系统对接服务。">为大型机构提供私有化部署、策略定制与系统对接服务。</p>
+</div>
+</div>
+</div>
+<div class="col market-col" id="market">
+<div class="section-head">
+<span class="eyebrow" data-en="Market" data-zh="市场">市场</span>
+<h2 data-en-html="A Massive&lt;br&gt;Structural Opportunity" data-zh-html="巨大的&lt;br&gt;结构性机会">巨大的<br/>结构性机会</h2>
+</div>
+<div class="market-list">
+<div class="market-item">
+<span class="market-label">TAM</span>
+<span class="market-value">~$70B+</span>
+<p data-en="Total addressable market for China quant trading technology services" data-zh="中国量化交易技术服务市场总规模">中国量化交易技术服务市场总规模</p>
+</div>
+<div class="market-item">
+<span class="market-label">SAM</span>
+<span class="market-value">~$1.7B</span>
+<p data-en="Serviceable addressable market for professional quant platforms" data-zh="专业服务型量化平台可服务市场">专业服务型量化平台可服务市场</p>
+</div>
+<div class="market-item">
+<span class="market-label">SOM</span>
+<span class="market-value">~$110M</span>
+<p data-en="Target market share over the next 3 years" data-zh="未来 3 年目标市场份额">未来 3 年目标市场份额</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Team -->
+<section class="section team slide slide-dark" id="team">
+<div class="section-inner">
+<div class="section-head">
+<span class="eyebrow" data-en="Team" data-zh="团队">团队</span>
+<h2 data-en-html="A Team Built by Leaders&lt;br&gt;in Quant, Tech, and Finance" data-zh-html="由量化、科技与金融&lt;br&gt;领域资深人士组成">由量化、科技与金融<br/>领域资深人士组成</h2>
+</div>
+<div class="team-grid">
+<div class="team-card">
+<img alt="Cynthia" class="member-photo" src="assets/cynthia.png"/>
+<div class="member-body">
+<div class="member-header">
+<h3>Cynthia</h3>
+<span class="member-role">CEO</span>
+</div>
+<p class="member-tagline" data-en="Serial entrepreneur driving TzQuant from lab to institutional clients." data-zh="连续创业者，推动 TzQuant 从实验室走向机构客户。">连续创业者，推动 TzQuant 从实验室走向机构客户。</p>
+<ul class="member-highlights">
+<li><strong>2018</strong> <span data-en="co-founded the predecessor project of TzQuant with Leo" data-zh="年与 Leo 共同发起天择量化前身项目">年与 Leo 共同发起天择量化前身项目</span></li>
+<li><strong>50+</strong> <span data-en="institutional clients for early commercial validation" data-zh="家机构客户的早期商业化验证">家机构客户的早期商业化验证</span></li>
+<li><strong>100</strong> <span data-en="person quant team organizational and delivery framework" data-zh="人规模量化团队的组织与交付机制">人规模量化团队的组织与交付机制</span></li>
+</ul>
+</div>
+</div>
+<div class="team-card">
+<img alt="Leo" class="member-photo" src="assets/leo.png"/>
+<div class="member-body">
+<div class="member-header">
+<h3>Leo</h3>
+<span class="member-role">CTO</span>
+</div>
+<p class="member-tagline" data-en="10+ years of system architecture, leading AI quant platform and trading core delivery." data-zh="10+ 年系统架构经验，主导 AI 量化平台与交易核心落地。">10+ 年系统架构经验，主导 AI 量化平台与交易核心落地。</p>
+<ul class="member-highlights">
+<li><strong>2011</strong> <span data-en="full-stack practice from blockchain infrastructure to financial systems" data-zh="年起从区块链底层到金融系统全栈实践">年起从区块链底层到金融系统全栈实践</span></li>
+<li><strong>$1B+</strong> <span data-en="AUM AI-driven quant platform built" data-zh="AUM 规模的 AI 量化平台搭建">AUM 规模的 AI 量化平台搭建</span></li>
+<li><span class="highlight-label" data-en="Tick-level" data-zh="Tick 级">Tick 级</span> <span data-en="tick-level backtest engine and low-latency trading core delivered" data-zh="回测引擎与低延迟交易核心落地">回测引擎与低延迟交易核心落地</span></li>
+</ul>
+</div>
+</div>
+<div class="team-card">
+<img alt="Barry" class="member-photo" src="assets/barry.jpg"/>
+<div class="member-body">
+<div class="member-header">
+<h3>Barry</h3>
+<span class="member-role">CFO</span>
+</div>
+<p class="member-tagline" data-en="Former Fortune 500 M&amp;A director, leading financing and ecosystem partnerships." data-zh="前 500 强 M&amp;A 总监，主导融资与生态合作。">前 500 强 M&amp;A 总监，主导融资与生态合作。</p>
+<ul class="member-highlights">
+<li><strong>5+</strong> <span data-en="years of Fortune 500 investment and M&amp;A experience" data-zh="年世界 500 强投资并购经验">年世界 500 强投资并购经验</span></li>
+<li><span class="highlight-label" data-en="Multiple rounds" data-zh="多轮">多轮</span> <span data-en="funding rounds and equity structuring" data-zh="融资与股权架构设计">融资与股权架构设计</span></li>
+<li><span class="highlight-label" data-en="GBA" data-zh="大湾区">大湾区</span> <span data-en="ecosystem connections with institutional clients, brokers, and data providers" data-zh="机构客户、券商与数据源生态对接">机构客户、券商与数据源生态对接</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+<!-- Contact -->
+<section class="section contact slide slide-light" id="contact">
+<div class="section-inner">
+<div class="section-head">
+<h2 data-en-html="Seeking &lt;strong&gt;$5M Seed&lt;/strong&gt;" data-zh-html="Seeking &lt;strong&gt;$5M Seed&lt;/strong&gt;">Seeking <strong>$5M Seed</strong></h2>
+<p class="section-subhead" data-en="If you're interested in TzQuant, we'd love to hear from you." data-zh="如果您对 TzQuant 感兴趣，欢迎与我们联系。">如果您对 TzQuant 感兴趣，欢迎与我们联系。</p>
+</div>
+<div class="funding-plan">
+<div class="fund-block">
+<h3 data-en="Use of Funds" data-zh="用途">用途</h3>
+<ul class="fund-allocations">
+<li><span class="fund-pct">40%</span> <span data-en="Core R&amp;D" data-zh="核心研发">核心研发</span></li>
+<li><span class="fund-pct">30%</span> <span data-en="Data Acquisition" data-zh="数据采购">数据采购</span></li>
+<li><span class="fund-pct">20%</span> <span data-en="BD &amp; Growth" data-zh="BD 增长">BD 增长</span></li>
+<li><span class="fund-pct">10%</span> <span data-en="Compliance &amp; Operations" data-zh="合规运营">合规运营</span></li>
+</ul>
+</div>
+<div class="fund-block">
+<h3 data-en="Runway" data-zh="现金流周期">现金流周期</h3>
+<p class="fund-value" data-en="18–24 months" data-zh="18–24 个月">18–24 个月</p>
+</div>
+<div class="fund-block">
+<h3 data-en="Milestone" data-zh="里程碑">里程碑</h3>
+<p data-en="Post-funding targets:" data-zh="融资后达到：">融资后达到：</p>
+<ul class="fund-milestones">
+<li><strong>200</strong> <span data-en="institutional clients" data-zh="家机构客户">家机构客户</span></li>
+<li><strong>ARR $5M</strong></li>
+<li data-en="Asia market coverage" data-zh="亚洲市场覆盖">亚洲市场覆盖</li>
+</ul>
+</div>
+</div>
+<a class="contact-email" href="mailto:bd@tzquant.com">bd@tzquant.com</a>
+<div class="contact-location" data-en="Hangzhou" data-zh="杭州">杭州</div>
+</div>
+<div class="footer"><span>TzQuant</span><span>Investor Deck · 2026</span></div></section>
+
+
+</body>
+</html>
